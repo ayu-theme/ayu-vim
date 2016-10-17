@@ -12,22 +12,19 @@ let g:colors_name = "ayu"
 " ----------------------------------------------------------------------------
 
 let s:palette = {}
+
+let s:palette.white      = { 'dark' : "#FFFFFF",      'light' : "#FFFFFF" }
 let s:palette.background = { 'dark' : "#0F1419",      'light' : "#FAFAFA" }
 let s:palette.foreground = { 'dark' : "#E6E1CF",      'light' : "#5C6773" }
-let s:palette.line       = { 'dark' : "#151A1F",      'light' : "#d0d0d0" } " Line bg
+let s:palette.line       = { 'dark' : "#151A1F",      'light' : "#F2F2F2" } " Line bg
 let s:palette.line_nr    = { 'dark' : "#2D3640",      'light' : "#D9D8D7" } " Line numbers
 let s:palette.selection  = { 'dark' : "#253340",      'light' : "#F0EEE4" }
 let s:palette.guide      = { 'dark' : "#1A2633",      'light' : "#DEDDDC" }
 
-
-let s:palette.tree       = { 'dark' : "#466280",      'light' : "#5f005f" }
-let s:palette.window     = { 'dark' : "#303030",      'light' : "#9e9e9e" }
-let s:palette.darkcolumn = { 'dark' : "#1c1c1c",      'light' : "#808080" }
-let s:palette.addbg      = { 'dark' : "#5F875F",      'light' : "#d7ffd7" }
-let s:palette.addfg      = { 'dark' : "#d7ffaf",      'light' : "#005f00" }
-let s:palette.changebg   = { 'dark' : "#5F5F87",      'light' : "#d7d7ff" }
-let s:palette.changefg   = { 'dark' : "#d7d7ff",      'light' : "#5f005f" }
-let s:palette.delbg      = { 'dark' : "#cc6666",      'light' : "#ffd7d7" }
+let s:palette.ui_accent  = { 'dark' : "#F29718",      'light' : "#FF6A00" }
+let s:palette.ui_gray    = { 'dark' : "#3E4B59",      'light' : "#828C99" }
+let s:palette.status     = { 'dark' : "#36A3D9",      'light' : "#86B300" }
+let s:palette.status_nc  = { 'dark' : "#225B79",      'light' : "#D4E6A1" }
 
 let s:palette.string     = { 'dark' : "#B8CC52",      'light' : "#86B300" }
 let s:palette.keyword    = { 'dark' : "#FF7733",      'light' : "#F2590C" }
@@ -35,12 +32,18 @@ let s:palette.comment    = { 'dark' : "#5C6773",      'light' : "#ABB0B6" }
 let s:palette.constant   = { 'dark' : "#FFEE99",      'light' : "#A37ACC" }
 let s:palette.tag        = { 'dark' : "#36A3D9",      'light' : "#41A6D9" }
 let s:palette.es_spec    = { 'dark' : "#E6B673",      'light' : "#CCA37A" }
-let s:palette.orange     = { 'dark' : "#FFAA33",      'light' : "#875f00" }
+
+let s:palette.window     = { 'dark' : "#303030",      'light' : "#9e9e9e" }
+let s:palette.darkcolumn = { 'dark' : "#1c1c1c",      'light' : "#808080" }
+let s:palette.addbg      = { 'dark' : "#5F875F",      'light' : "#d7ffd7" }
+let s:palette.changebg   = { 'dark' : "#5F5F87",      'light' : "#d7d7ff" }
+let s:palette.changefg   = { 'dark' : "#d7d7ff",      'light' : "#5f005f" }
+let s:palette.delbg      = { 'dark' : "#cc6666",      'light' : "#ffd7d7" }
 
 let s:palette.blue       = { 'dark' : "#2B9FD9",      'light' : "#00005f" }
 let s:palette.gray       = { 'dark' : "#525C66",      'light' : "#5f5f5f" }
 let s:palette.darkred    = { 'dark' : "#5f0000",      'light' : "#d7d7ff" }
-let s:palette.red        = { 'dark' : "#D7503C",      'light' : "#5f0000" }
+let s:palette.red        = { 'dark' : "#FF3333",      'light' : "#FF3333" }
 let s:palette.yellow     = { 'dark' : "#E7C547",      'light' : "#F29718" }
 let s:palette.darkaqua   = { 'dark' : "#005f5f",      'light' : "#005f00" }
 let s:palette.darkblue   = { 'dark' : "#00005f",      'light' : "#d7ffd7" }
@@ -103,13 +106,12 @@ exe "hi! LineNr"        .s:fg_line_nr     .s:bg_none        .s:fmt_none
 
 
 exe "hi! Directory"     .s:fg_blue        .s:bg_none        .s:fmt_none
-exe "hi! DiffAdd"       .s:fg_addfg       .s:bg_addbg       .s:fmt_none
-exe "hi! DiffChange"    .s:fg_changefg    .s:bg_changebg    .s:fmt_none
-exe "hi! DiffDelete"    .s:fg_background  .s:bg_delbg       .s:fmt_none
+exe "hi! DiffAdd"       .s:fg_string      .s:bg_addbg       .s:fmt_none
+exe "hi! DiffChange"    .s:fg_background  .s:bg_delbg       .s:fmt_none
 exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_stnd
 exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
-exe "hi! Folded"        .s:fg_gray        .s:bg_darkcolumn  .s:fmt_none
+exe "hi! Folded"        .s:fg_ui_gray     .s:bg_darkcolumn  .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
 "   Incsearch"
@@ -129,8 +131,8 @@ exe "hi! SpellCap"      .s:fg_blue        .s:bg_darkblue    .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_es_spec     .s:bg_darkaqua    .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_red         .s:bg_darkred     .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_tag         .s:bg_darkpurple  .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_gray        .s:bg_background  .s:fmt_revr
-exe "hi! StatusLineNC"  .s:fg_window      .s:bg_gray        .s:fmt_revr
+exe "hi! StatusLine"    .s:fg_status      .s:bg_white       .s:fmt_revr
+exe "hi! StatusLineNC"  .s:fg_status_nc   .s:bg_foreground  .s:fmt_revr
 exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
 "   TabLineFill"
 "   TabLineSel"
@@ -189,7 +191,7 @@ exe "hi! Ignore"          .s:fg_none      .s:bg_none        .s:fmt_none
 
 exe "hi! Error"           .s:fg_red       .s:bg_darkred     .s:fmt_undr
 
-exe "hi! Todo"            .s:fg_addfg     .s:bg_none        .s:fmt_none
+exe "hi! Todo"            .s:fg_string    .s:bg_none        .s:fmt_none
 
 " Quickfix window highlighting
 exe "hi! qfLineNr"        .s:fg_keyword   .s:bg_none        .s:fmt_none
@@ -209,16 +211,16 @@ exe "hi! CursorLineConceal" .s:fg_guide   .s:bg_line        .s:fmt_none
 " NerdTree
 " " --------
 "
-exe "hi! NERDTreeOpenable"          .s:fg_tree        .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeClosable"          .s:fg_orange      .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeOpenable"          .s:fg_ui_gray     .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeClosable"          .s:fg_ui_accent   .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarksHeader"   .s:fg_pink        .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarksLeader"   .s:fg_background  .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeBookmarkName"      .s:fg_keyword     .s:bg_none        .s:fmt_none
 " exe "hi! NERDTreeCWD"               .s:fg_pink        .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeUp"                .s:fg_tree       .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDirSlash"          .s:fg_foreground .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDir"               .s:fg_tree       .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeFile"              .s:fg_tree       .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeUp"                .s:fg_ui_gray    .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeDir"               .s:fg_ui_gray    .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeFile"              .s:fg_ui_gray    .s:bg_none        .s:fmt_none
+exe "hi! NERDTreeDirSlash"          .s:fg_line_nr    .s:bg_none        .s:fmt_none
 "}}}
 " Diff Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
@@ -235,7 +237,7 @@ exe "hi! NERDTreeFile"              .s:fg_tree       .s:bg_none        .s:fmt_no
 "   diffCommon
 hi! link diffRemoved Constant
 "   diffChanged
-hi! link diffAdded Special
+hi! link diffAdded String
 "   diffLine
 "   diffSubname
 "   diffComment
