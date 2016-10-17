@@ -10,6 +10,7 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 colorscheme ayu
 set background=light " for light version of theme
 set background=dark  " for dark version of theme
+set termguicolors    " enable true colors support
 ```
 
 # Term colors
