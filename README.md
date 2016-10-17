@@ -15,8 +15,8 @@ set background=dark  " for dark version of theme
 # Term colors
 For now In `/term` you can find color schemes for iTerm. More to come.
 
-# Ident line
-To get ident line like in the screenshot install https://github.com/Yggdroot/indentLine with my version of `Roboto Mono for Powerline` from this repo and add this config.
+# Indent line
+To get indent line like in the screenshot install https://github.com/Yggdroot/indentLine with my version of `Roboto Mono for Powerline` from this repo and add this config.
 In this Roboto Mono version added powerline glyphs and increased line-height of the font itself.
 
 ```Viml
