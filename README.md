@@ -1,7 +1,7 @@
 ![Imgur](http://i.imgur.com/zPs92Hk.png)
 
 # Pre-alpha Warning
-This theme is in development stage and a lot of things need to be covered. Theme works only with [Neovim](https://neovim.io) and `termguicolors` option.
+This theme is in development stage and a lot of things need to be covered. Theme works only if VIM supports `termguicolors` option. This is true for [Neovim](https://neovim.io) and VIM from 7.4.1799.
 
 # Instalation
 ```VimL
