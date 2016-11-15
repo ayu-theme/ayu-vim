@@ -41,6 +41,7 @@ let s:palette.changefg   = { 'dark' : "#d7d7ff",      'light' : "#5f005f" }
 let s:palette.delbg      = { 'dark' : "#cc6666",      'light' : "#ffd7d7" }
 
 let s:palette.blue       = { 'dark' : "#2B9FD9",      'light' : "#00005f" }
+let s:palette.green      = { 'dark' : "#B8CC52",      'light' : "#86B300" }
 let s:palette.gray       = { 'dark' : "#525C66",      'light' : "#5f5f5f" }
 let s:palette.darkred    = { 'dark' : "#5f0000",      'light' : "#d7d7ff" }
 let s:palette.red        = { 'dark' : "#FF3333",      'light' : "#FF3333" }
@@ -202,11 +203,26 @@ exe "hi! qfLineNr"        .s:fg_keyword   .s:bg_none        .s:fmt_none
 exe "hi! Conceal"         .s:fg_guide     .s:bg_none        .s:fmt_none
 exe "hi! CursorLineConceal" .s:fg_guide   .s:bg_line        .s:fmt_none
 
-
-
-
-
-
+if has("nvim")
+  let g:terminal_color_0 =  s:palette.background.dark
+  let g:terminal_color_1 =  s:palette.red.dark
+  let g:terminal_color_2 =  s:palette.green.dark
+  let g:terminal_color_3 =  s:palette.yellow.dark
+  let g:terminal_color_4 =  s:palette.blue.dark
+  let g:terminal_color_5 =  s:palette.darkpurple.dark
+  let g:terminal_color_6 =  s:palette.darkaqua.dark
+  let g:terminal_color_7 =  s:palette.white.dark
+  let g:terminal_color_8 =  s:palette.ui_gray.dark
+  let g:terminal_color_9 =  s:palette.darkred.dark
+  let g:terminal_color_10 = s:palette.green.dark
+  let g:terminal_color_11 = s:palette.yellow.dark
+  let g:terminal_color_12 = s:palette.blue.dark
+  let g:terminal_color_13 = s:palette.darkpurple.dark
+  let g:terminal_color_14 = s:palette.darkaqua.dark
+  let g:terminal_color_15 = s:palette.gray.dark
+  let g:terminal_color_background = g:terminal_color_0
+  let g:terminal_color_foreground = g:terminal_color_7
+endif
 
 " NerdTree
 " " --------
