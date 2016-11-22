@@ -1,16 +1,17 @@
-![Imgur](http://i.imgur.com/zPs92Hk.png)
+![ayu-vim](http://i.imgur.com/7vnF4Na.png)
 
-# Pre-alpha Warning
-This theme is in development stage and a lot of things need to be covered. Theme works only if VIM supports `termguicolors` option. This is true for [Neovim](https://neovim.io) and VIM from 7.4.1799.
+# Warning
+`ayu` is still in development and a lot of things need to be covered. Theme works only if VIM supports `termguicolors` option. This is true for [Neovim](https://neovim.io) and VIM from 7.4.1799.
 
 # Instalation
 ```VimL
-Plug 'ayu-theme/ayu-vim' " or other package manager 
+Plug 'ayu-theme/ayu-vim' " or other package manager
 "...
 colorscheme ayu
-set background=light " for light version of theme
-set background=dark  " for dark version of theme
-set termguicolors    " enable true colors support
+let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+let ayucolor="dark"   " for dark version of theme
+set termguicolors     " enable true colors support
 ```
 
 # Term colors
