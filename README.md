@@ -7,11 +7,11 @@
 ```VimL
 Plug 'ayu-theme/ayu-vim' " or other package manager
 "...
-colorscheme ayu
+set termguicolors     " enable true colors support
 let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
 let ayucolor="dark"   " for dark version of theme
-set termguicolors     " enable true colors support
+colorscheme ayu
 ```
 
 # Term colors
