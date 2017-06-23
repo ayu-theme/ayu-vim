@@ -3,7 +3,7 @@
 # Warning
 `ayu` is still in development and a lot of things need to be covered. Theme works only if VIM supports `termguicolors` option. This is true for [Neovim](https://neovim.io) and VIM from 7.4.1799.
 
-# Instalation
+# Installation
 ```VimL
 Plug 'ayu-theme/ayu-vim' " or other package manager
 "...
