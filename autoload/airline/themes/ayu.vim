@@ -5,7 +5,7 @@ let s:c = {}
 
 if ayucolor == 'light'
   " Base colors.
-  let s:c.base0 = { 'gui': '#151a1e', 'cterm': 0 }
+  let s:c.base0 = { 'gui': '#EAEAEA', 'cterm': 0 }
   let s:c.base1 = { 'gui': '#FAFAFA', 'cterm': 8 }
   let s:c.base2 = { 'gui': '#FAFAFA', 'cterm': 10 }
   let s:c.base3 = { 'gui': '#FAFAFA', 'cterm': 12 }
