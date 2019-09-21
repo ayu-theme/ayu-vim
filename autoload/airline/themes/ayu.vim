@@ -84,7 +84,7 @@ let s:I1 = s:Array('base2', 'green')
 if ayucolor == 'light'
   let s:I2 = s:Array('orange', 'base3')
 else
-  let s:R2 = s:Array('base6', 'base3')
+  let s:I2 = s:Array('base6', 'base3')
 endif
 let s:I3 = s:Array('blue', 'base1')
 
