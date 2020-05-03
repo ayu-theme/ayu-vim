@@ -178,7 +178,7 @@ exe "hi! Underlined"      .s:fg_tag       .s:bg_none        .s:fmt_undr
 
 exe "hi! Ignore"          .s:fg_none      .s:bg_none        .s:fmt_none
 
-exe "hi! Error"           .s:fg_fg        .s:bg_error       .s:fmt_none
+exe "hi! Error"           .s:fg_fg        .s:bg_panel       .s:fmt_none
 
 exe "hi! Todo"            .s:fg_markup    .s:bg_none        .s:fmt_none
 
