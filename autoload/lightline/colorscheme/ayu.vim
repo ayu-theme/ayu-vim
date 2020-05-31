@@ -1,4 +1,4 @@
-let s:style = get(g:, 'ayucolor', 'dark')
+let s:style = &background ==# 'dark' ? get(g:, 'ayucolor', 'dark') : &background
 
 let s:fg = {}
 let s:fg.primary    = {'dark': '#E6E1CF', 'light': '#5C6773', 'mirage': '#D9D7CE'}[s:style]

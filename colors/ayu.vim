@@ -5,7 +5,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let s:style = get(g:, 'ayucolor', 'dark')
+let s:style = &background ==# 'dark' ? get(g:, 'ayucolor', 'dark') : &background
 let g:colors_name = "ayu"
 "}}}
 
@@ -269,9 +269,3 @@ hi! link diffAdded String
 "   diffComment
 
 "}}}
-"
-" This is needed for some reason: {{{
-
-let &background = s:style
-
-" }}}
