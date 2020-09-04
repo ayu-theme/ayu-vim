@@ -120,7 +120,7 @@ exe "hi! SpellRare"     .s:fg_regexp      .s:bg_none        .s:fmt_undr
 exe "hi! StatusLine"    .s:fg_fg          .s:bg_panel       .s:fmt_none
 exe "hi! StatusLineNC"  .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
 exe "hi! WildMenu"      .s:fg_bg          .s:bg_markup      .s:fmt_none
-exe "hi! TabLine"       .s:fg_fg          .s:bg_panel       .s:fmt_revr
+exe "hi! TabLine"       .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
 "   TabLineFill"
 "   TabLineSel"
 exe "hi! Title"         .s:fg_keyword     .s:bg_none        .s:fmt_none
