@@ -265,7 +265,7 @@ exe "hi! GitGutterChangeDelete" .s:fg_function   .s:bg_none        .s:fmt_none
 "   diffCommon
 hi! link diffRemoved DiffDelete
 "   diffChanged
-hi! link diffAdded String
+hi! link diffAdded DiffAdd
 "   diffLine
 "   diffSubname
 "   diffComment
