@@ -14,27 +14,31 @@ let g:colors_name = "ayu"
 
 let s:palette = {}
 
-let s:palette.bg        = {'light': "#FAFAFA",  'mirage': "#1F2430",  'dark': "#0A0E14"}
-                                                                                       
-let s:palette.comment   = {'light': "#ABB0B6",  'mirage': "#5C6773",  'dark': "#626A73"}
-let s:palette.markup    = {'light': "#F07171",  'mirage': "#F28779",  'dark': "#F07178"}
-let s:palette.constant  = {'light': "#A37ACC",  'mirage': "#D4BFFF",  'dark': "#FFEE99"}
-let s:palette.operator  = {'light': "#ED9366",  'mirage': "#F29E74",  'dark': "#F29668"}
-let s:palette.tag       = {'light': "#55B4D4",  'mirage': "#5CCFE6",  'dark': "#39BAE6"}
-let s:palette.regexp    = {'light': "#4CBF99",  'mirage': "#95E6CB",  'dark': "#95E6CB"}
-let s:palette.string    = {'light': "#86B300",  'mirage': "#BAE67E",  'dark': "#C2D94C"}
-let s:palette.function  = {'light': "#F2AE49",  'mirage': "#FFD580",  'dark': "#FFB454"}
-let s:palette.special   = {'light': "#E6BA7E",  'mirage': "#FFE6B3",  'dark': "#E6B673"}
-let s:palette.keyword   = {'light': "#FA8D3E",  'mirage': "#FFA759",  'dark': "#FF8F40"}
-                                                                                       
-let s:palette.error     = {'light': "#F51818",  'mirage': "#FF3333",  'dark': "#FF3333"}
-let s:palette.accent    = {'light': "#FF9940",  'mirage': "#FFCC66",  'dark': "#E6B450"}
-let s:palette.panel     = {'light': "#FFFFFF",  'mirage': "#232834",  'dark': "#0D1016"}
-let s:palette.guide     = {'light': "#D9D8D7",  'mirage': "#3D4751",  'dark': "#2D3640"}
-let s:palette.line      = {'light': "#F3F3F3",  'mirage': "#242B38",  'dark': "#151A1E"}
-let s:palette.selection = {'light': "#F0EEE4",  'mirage': "#343F4C",  'dark': "#253340"}
-let s:palette.fg        = {'light': "#575F66",  'mirage': "#CBCCC6",  'dark': "#B3B1AD"}
-let s:palette.fg_idle   = {'light': "#828C99",  'mirage': "#607080",  'dark': "#3E4B59"}
+let s:palette.bg           = {'light': "#FAFAFA",  'mirage': "#1F2430",  'dark': "#0A0E14"}
+
+let s:palette.comment      = {'light': "#ABB0B6",  'mirage': "#5C6773",  'dark': "#626A73"}
+let s:palette.markup       = {'light': "#F07171",  'mirage': "#F28779",  'dark': "#F07178"}
+let s:palette.constant     = {'light': "#A37ACC",  'mirage': "#D4BFFF",  'dark': "#FFEE99"}
+let s:palette.operator     = {'light': "#ED9366",  'mirage': "#F29E74",  'dark': "#F29668"}
+let s:palette.tag          = {'light': "#55B4D4",  'mirage': "#5CCFE6",  'dark': "#39BAE6"}
+let s:palette.regexp       = {'light': "#4CBF99",  'mirage': "#95E6CB",  'dark': "#95E6CB"}
+let s:palette.string       = {'light': "#86B300",  'mirage': "#BAE67E",  'dark': "#C2D94C"}
+let s:palette.function     = {'light': "#F2AE49",  'mirage': "#FFD580",  'dark': "#FFB454"}
+let s:palette.special      = {'light': "#E6BA7E",  'mirage': "#FFE6B3",  'dark': "#E6B673"}
+let s:palette.keyword      = {'light': "#FA8D3E",  'mirage': "#FFA759",  'dark': "#FF8F40"}
+
+let s:palette.error        = {'light': "#F51818",  'mirage': "#FF3333",  'dark': "#FF3333"}
+let s:palette.accent       = {'light': "#FF9940",  'mirage': "#FFCC66",  'dark': "#E6B450"}
+let s:palette.panel        = {'light': "#FFFFFF",  'mirage': "#232834",  'dark': "#0D1016"}
+let s:palette.guide        = {'light': "#D9D8D7",  'mirage': "#3D4751",  'dark': "#2D3640"}
+let s:palette.line         = {'light': "#F3F3F3",  'mirage': "#242B38",  'dark': "#151A1E"}
+let s:palette.selection    = {'light': "#F0EEE4",  'mirage': "#343F4C",  'dark': "#253340"}
+let s:palette.fg           = {'light': "#575F66",  'mirage': "#CBCCC6",  'dark': "#B3B1AD"}
+let s:palette.fg_idle      = {'light': "#828C99",  'mirage': "#607080",  'dark': "#3E4B59"}
+
+let s:palette.vcs_added    = {'light': "#99BF4D",  'mirage': "#A6CC70",  'dark': "#91B362"}
+let s:palette.vcs_modified = {'light': "#709ECC",  'mirage': "#77A8D9",  'dark': "#6994BF"}
+let s:palette.vcs_removed  = {'light': "#F27983",  'mirage': "#F27983",  'dark': "#D96C75"}
 
 "}}}
 
@@ -80,7 +84,6 @@ exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE"
 exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
 "}}}
 
-
 " Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! Normal"        .s:fg_fg          .s:bg_bg          .s:fmt_none
@@ -92,9 +95,6 @@ exe "hi! CursorLineNr"  .s:fg_accent      .s:bg_line        .s:fmt_none
 exe "hi! LineNr"        .s:fg_guide       .s:bg_none        .s:fmt_none
 
 exe "hi! Directory"     .s:fg_fg_idle     .s:bg_none        .s:fmt_none
-exe "hi! DiffAdd"       .s:fg_string      .s:bg_panel       .s:fmt_none
-exe "hi! DiffChange"    .s:fg_tag         .s:bg_panel       .s:fmt_none
-exe "hi! DiffText"      .s:fg_fg          .s:bg_panel       .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_fg          .s:bg_error       .s:fmt_stnd
 exe "hi! VertSplit"     .s:fg_bg          .s:bg_none        .s:fmt_none
 exe "hi! Folded"        .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
@@ -250,26 +250,12 @@ exe "hi! GitGutterChangeDelete" .s:fg_function   .s:bg_none        .s:fmt_none
 
 " Diff Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
-" Diff
-"   diffOldFile
-"   diffNewFile
-"   diffFile
-"   diffOnly
-"   diffIdentical
-"   diffDiffer
-"   diffBDiffer
-"   diffIsA
-"   diffNoEOL
-"   diffCommon
-hi! link diffRemoved Constant
-"   diffChanged
-hi! link diffAdded String
-"   diffLine
-"   diffSubname
-"   diffComment
-
+exe "hi! DiffAdd"    .s:fg_vcs_added    .s:bg_panel .s:fmt_none
+exe "hi! DiffChange" .s:fg_vcs_modified .s:bg_panel .s:fmt_none
+exe "hi! DiffDelete" .s:fg_vcs_removed  .s:bg_panel .s:fmt_none
+exe "hi! DiffText"   .s:fg_fg           .s:bg_panel .s:fmt_none
 "}}}
-"
+
 " This is needed for some reason: {{{
 
 let &background = s:style
