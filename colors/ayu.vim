@@ -250,16 +250,16 @@ exe "hi! GitGutterChangeDelete" .s:fg_function   .s:bg_none        .s:fmt_none
 
 " Diff Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
-exe "hi! DiffAdd"     .s:fg_vcs_added    .s:bg_panel .s:fmt_none
-exe "hi! DiffAdded"   .s:fg_vcs_added    .s:bg_panel .s:fmt_none
-exe "hi! DiffChange"  .s:fg_vcs_modified .s:bg_panel .s:fmt_none
-exe "hi! DiffDelete"  .s:fg_vcs_removed  .s:bg_panel .s:fmt_none
-exe "hi! DiffRemoved" .s:fg_vcs_removed  .s:bg_panel .s:fmt_none
-exe "hi! DiffText"    .s:fg_fg           .s:bg_panel .s:fmt_none
+exe "hi! DiffAdd"     .s:fg_vcs_added    .s:bg_none .s:fmt_none
+exe "hi! DiffAdded"   .s:fg_vcs_added    .s:bg_none .s:fmt_none
+exe "hi! DiffChange"  .s:fg_vcs_modified .s:bg_none .s:fmt_none
+exe "hi! DiffDelete"  .s:fg_vcs_removed  .s:bg_none .s:fmt_none
+exe "hi! DiffRemoved" .s:fg_vcs_removed  .s:bg_none .s:fmt_none
+exe "hi! DiffText"    .s:fg_fg           .s:bg_none .s:fmt_none
 "}}}
 
-" This is needed for some reason: {{{
+" Telescope:"{{{
+exe "hi! TelescopeMatching" .s:fg_keyword .s:bg_none .s:fmt_undr
+" }}}
 
 let &background = s:style
-
-" }}}
