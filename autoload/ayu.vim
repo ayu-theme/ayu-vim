@@ -1,3 +1,4 @@
+" Palette:" {{{
 let g:ayu#palette = {}
 
 " common
@@ -45,9 +46,22 @@ let g:ayu#palette.vcs_removed  = {'light': "#F27983",  'mirage': "#F27983",  'da
 let g:ayu#palette.fg_idle      = {'light': "#828C99",  'mirage': "#607080",  'dark': "#3E4B59"}
 
 " TODO: Add 16 color palette for convenience
+" }}}
+
+function! ayu#get_style()
+    return get(g:, 'ayucolor', 'dark')
+endfunction
 
 function! ayu#get_color(color_name)
     let l:style = get(g:, 'ayucolor', 'dark')
 
     return g:ayu#palette[a:color_name][l:style]
+endfunction
+
+function! ayu#get_background()
+    if ayu#get_style() ==? 'light'
+        return 'light'
+    else
+        return 'dark'
+    endif
 endfunction

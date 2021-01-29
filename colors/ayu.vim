@@ -5,261 +5,199 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let s:style = get(g:, 'ayucolor', 'dark')
 let g:colors_name = "ayu"
 "}}}
 
-" Palettes:"{{{
+
+" Helper Functions:"{{{
 " ----------------------------------------------------------------------------
 
-let s:palette = {}
+function! s:hi(group_name, fg_color_name, bg_color_name, ...)
+    let l:highlights = ['hi!', a:group_name]
 
-let s:palette.bg           = {'light': "#FAFAFA",  'mirage': "#1F2430",  'dark': "#0A0E14"}
+    if a:bg_color_name != ''
+        let l:bg = 'guibg=' . ayu#get_color(a:bg_color_name)
+        call add(l:highlights, l:bg)
+    else
+        call add(l:highlights, 'guibg=NONE')
+    endif
 
-let s:palette.comment      = {'light': "#ABB0B6",  'mirage': "#5C6773",  'dark': "#626A73"}
-let s:palette.markup       = {'light': "#F07171",  'mirage': "#F28779",  'dark': "#F07178"}
-let s:palette.constant     = {'light': "#A37ACC",  'mirage': "#D4BFFF",  'dark': "#FFEE99"}
-let s:palette.operator     = {'light': "#ED9366",  'mirage': "#F29E74",  'dark': "#F29668"}
-let s:palette.tag          = {'light': "#55B4D4",  'mirage': "#5CCFE6",  'dark': "#39BAE6"}
-let s:palette.regexp       = {'light': "#4CBF99",  'mirage': "#95E6CB",  'dark': "#95E6CB"}
-let s:palette.string       = {'light': "#86B300",  'mirage': "#BAE67E",  'dark': "#C2D94C"}
-let s:palette.function     = {'light': "#F2AE49",  'mirage': "#FFD580",  'dark': "#FFB454"}
-let s:palette.special      = {'light': "#E6BA7E",  'mirage': "#FFE6B3",  'dark': "#E6B673"}
-let s:palette.keyword      = {'light': "#FA8D3E",  'mirage': "#FFA759",  'dark': "#FF8F40"}
+    if a:fg_color_name !=# ''
+        let l:fg = 'guifg=' . ayu#get_color(a:fg_color_name)
+        call add(l:highlights, l:fg)
+    else
+        call add(l:highlights, 'guifg=NONE')
+    endif
 
-let s:palette.error        = {'light': "#F51818",  'mirage': "#FF3333",  'dark': "#FF3333"}
-let s:palette.accent       = {'light': "#FF9940",  'mirage': "#FFCC66",  'dark': "#E6B450"}
-let s:palette.panel        = {'light': "#FFFFFF",  'mirage': "#232834",  'dark': "#0D1016"}
-let s:palette.guide        = {'light': "#D9D8D7",  'mirage': "#3D4751",  'dark': "#2D3640"}
-let s:palette.line         = {'light': "#F3F3F3",  'mirage': "#242B38",  'dark': "#151A1E"}
-let s:palette.selection    = {'light': "#F0EEE4",  'mirage': "#343F4C",  'dark': "#253340"}
-let s:palette.fg           = {'light': "#575F66",  'mirage': "#CBCCC6",  'dark': "#B3B1AD"}
-let s:palette.fg_idle      = {'light': "#828C99",  'mirage': "#607080",  'dark': "#3E4B59"}
+    let l:fmt = get(a:, '1')
+    if l:fmt !=# '0'
+        call add(l:highlights, 'gui=' . l:fmt)
+    else
+        " Default to no formating to avoid using defaults
+        call add(l:highlights, 'gui=NONE')
+    endif
 
-let s:palette.vcs_added    = {'light': "#99BF4D",  'mirage': "#A6CC70",  'dark': "#91B362"}
-let s:palette.vcs_modified = {'light': "#709ECC",  'mirage': "#77A8D9",  'dark': "#6994BF"}
-let s:palette.vcs_removed  = {'light': "#F27983",  'mirage': "#F27983",  'dark': "#D96C75"}
+    let l:cmd = join(l:highlights, ' ')
 
-"}}}
-
-" Highlighting Primitives:"{{{
-" ----------------------------------------------------------------------------
-
-function! s:build_prim(hi_elem, field)
-  let l:vname = "s:" . a:hi_elem . "_" . a:field " s:bg_gray
-  let l:gui_assign = "gui".a:hi_elem."=".s:palette[a:field][s:style] " guibg=...
-  exe "let " . l:vname . " = ' " . l:gui_assign . "'"
+    execute l:cmd
 endfunction
 
-let s:bg_none = ' guibg=NONE ctermbg=NONE'
-let s:fg_none = ' guifg=NONE ctermfg=NONE'
-for [key_name, d_value] in items(s:palette)
-  call s:build_prim('bg', key_name)
-  call s:build_prim('fg', key_name)
-endfor
 " }}}
-
-" Formatting Options:"{{{
-" ----------------------------------------------------------------------------
-let s:none   = "NONE"
-let s:t_none = "NONE"
-let s:n      = "NONE"
-let s:c      = ",undercurl"
-let s:r      = ",reverse"
-let s:s      = ",standout"
-let s:b      = ",bold"
-let s:u      = ",underline"
-let s:i      = ",italic"
-
-exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
-exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_bldi = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
-exe "let s:fmt_undr = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_undb = ' gui=NONE".s:u.s:b.  " cterm=NONE".s:u.s:b.  " term=NONE".s:u.s:b."'"
-exe "let s:fmt_undi = ' gui=NONE".s:u.      " cterm=NONE".s:u.      " term=NONE".s:u    ."'"
-exe "let s:fmt_curl = ' gui=NONE".s:c.      " cterm=NONE".s:c.      " term=NONE".s:c    ."'"
-exe "let s:fmt_ital = ' gui=NONE".s:i.      " cterm=NONE".s:i.      " term=NONE".s:i    ."'"
-exe "let s:fmt_stnd = ' gui=NONE".s:s.      " cterm=NONE".s:s.      " term=NONE".s:s    ."'"
-exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE".s:r    ."'"
-exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
-"}}}
 
 " Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
-exe "hi! Normal"        .s:fg_fg          .s:bg_bg          .s:fmt_none
-exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
-" Conceal, Cursor, CursorIM
-exe "hi! CursorColumn"  .s:fg_none        .s:bg_line        .s:fmt_none
-exe "hi! CursorLine"    .s:fg_none        .s:bg_line        .s:fmt_none
-exe "hi! CursorLineNr"  .s:fg_accent      .s:bg_line        .s:fmt_none
-exe "hi! LineNr"        .s:fg_guide       .s:bg_none        .s:fmt_none
 
-exe "hi! Directory"     .s:fg_fg_idle     .s:bg_none        .s:fmt_none
-exe "hi! ErrorMsg"      .s:fg_fg          .s:bg_error       .s:fmt_stnd
-exe "hi! VertSplit"     .s:fg_bg          .s:bg_none        .s:fmt_none
-exe "hi! Folded"        .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
-exe "hi! FoldColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
-exe "hi! SignColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
+call s:hi('Normal', 'fg', 'bg')
+call s:hi('ColorColumn', '', 'line')
+call s:hi('CursorColumn', '', 'line')
+" NOTE: darker than before, but still looks good, gives a nice contrast
+call s:hi('CursorLine', '', 'line')
+call s:hi('CursorLineNr', 'accent', 'line')
+call s:hi('LineNr', 'guide_normal', '')
+
+call s:hi('Directory', 'fg_idle', '')
+call s:hi('ErrorMsg', 'fg', 'error', 'standout')
+call s:hi('VertSplit', 'bg', '')
+call s:hi('Folded', 'fg_idle', 'panel_bg')
+call s:hi('FoldColumn', '', 'panel_bg')
+call s:hi('SignColumn', '', 'panel_bg')
 "   Incsearch"
 
-exe "hi! MatchParen"    .s:fg_fg          .s:bg_bg          .s:fmt_undr
-exe "hi! ModeMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! MoreMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! NonText"       .s:fg_guide       .s:bg_none        .s:fmt_none
-exe "hi! Pmenu"         .s:fg_fg          .s:bg_selection   .s:fmt_none
-exe "hi! PmenuSel"      .s:fg_fg          .s:bg_selection   .s:fmt_revr
-"   PmenuSbar"
-"   PmenuThumb"
-exe "hi! Question"      .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_bg          .s:bg_constant    .s:fmt_none
-exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
-exe "hi! SpellCap"      .s:fg_tag         .s:bg_none        .s:fmt_undr
-exe "hi! SpellLocal"    .s:fg_keyword     .s:bg_none        .s:fmt_undr
-exe "hi! SpellBad"      .s:fg_error       .s:bg_none        .s:fmt_undr
-exe "hi! SpellRare"     .s:fg_regexp      .s:bg_none        .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_fg          .s:bg_panel       .s:fmt_none
-exe "hi! StatusLineNC"  .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
-exe "hi! WildMenu"      .s:fg_bg          .s:bg_markup      .s:fmt_none
-exe "hi! TabLine"       .s:fg_fg          .s:bg_panel       .s:fmt_revr
-"   TabLineFill"
-"   TabLineSel"
-exe "hi! Title"         .s:fg_keyword     .s:bg_none        .s:fmt_none
-exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
-"   VisualNos"
-exe "hi! WarningMsg"    .s:fg_error       .s:bg_none        .s:fmt_none
-
-" TODO LongLineWarning to use variables instead of hardcoding
-hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-"   WildMenu"
+call s:hi('MatchParen', 'fg', 'bg', 'underline')
+call s:hi('ModeMsg', 'string', '')
+call s:hi('MoreMsg', 'string', '')
+call s:hi('NonText', 'guide_normal', '')
+" NOTE: darker than before, I like it, but might not be for everyone
+call s:hi('Pmenu', 'fg', 'panel_shadow')
+call s:hi('PmenuSel', 'fg', 'selection_inactive', 'reverse')
+call s:hi('Question', 'string', '')
+call s:hi('Search', 'bg', 'constant')
+call s:hi('SpecialKey', 'selection_inactive', '')
+call s:hi('SpellCap', 'tag', '', 'underline')
+call s:hi('SpellLocal', 'keyword', '', 'underline')
+call s:hi('SpellBad', 'error', '', 'underline')
+call s:hi('SpellRare', 'regexp', '', 'underline')
+call s:hi('StatusLine', 'fg', 'panel_bg')
+call s:hi('StatusLineNC', 'fg_idle', 'panel_bg')
+call s:hi('WildMenu', 'fg', 'markup')
+call s:hi('TabLine', 'fg', 'panel_bg', 'reverse')
+call s:hi('Title', 'keyword', '')
+call s:hi('Visual', '', 'selection_inactive')
+" TODO: add highlight called 'warning'
+call s:hi('WarningMsg', 'keyword', '')
 
 "}}}
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
 " ----------------------------------------------------------------------------
-exe "hi! Comment"         .s:fg_comment   .s:bg_none        .s:fmt_none
 
-exe "hi! Constant"        .s:fg_constant  .s:bg_none        .s:fmt_none
-exe "hi! String"          .s:fg_string    .s:bg_none        .s:fmt_none
-"   Character"
-"   Number"
-"   Boolean"
-"   Float"
+call s:hi('Comment', 'comment', '')
+call s:hi('Constant', 'constant', '')
+call s:hi('String', 'string', '')
 
-exe "hi! Identifier"      .s:fg_tag       .s:bg_none        .s:fmt_none
-exe "hi! Function"        .s:fg_function  .s:bg_none        .s:fmt_none
+call s:hi('Identifier', 'tag', '')
+call s:hi('Function', 'func', '')
 
-exe "hi! Statement"       .s:fg_keyword   .s:bg_none        .s:fmt_none
-"   Conditional"
-"   Repeat"
-"   Label"
-exe "hi! Operator"        .s:fg_operator  .s:bg_none        .s:fmt_none
-"   Keyword"
-"   Exception"
+call s:hi('Statement', 'keyword', '')
+call s:hi('Operator', 'operator', '')
 
-exe "hi! PreProc"         .s:fg_special   .s:bg_none        .s:fmt_none
-"   Include"
-"   Define"
-"   Macro"
-"   PreCondit"
+call s:hi('PreProc', 'special', '')
 
-exe "hi! Type"            .s:fg_tag       .s:bg_none        .s:fmt_none
-"   StorageClass"
-exe "hi! Structure"       .s:fg_special   .s:bg_none        .s:fmt_none
-"   Typedef"
+call s:hi('Type', 'tag', '')
+call s:hi('Structure', 'special', '')
 
-exe "hi! Special"         .s:fg_special   .s:bg_none        .s:fmt_none
-"   SpecialChar"
-"   Tag"
-"   Delimiter"
-"   SpecialComment"
-"   Debug"
-"
-exe "hi! Underlined"      .s:fg_tag       .s:bg_none        .s:fmt_undr
+call s:hi('Special', 'special', '')
 
-exe "hi! Ignore"          .s:fg_none      .s:bg_none        .s:fmt_none
+call s:hi('Underlined', 'tag', '', 'underline')
 
-exe "hi! Error"           .s:fg_fg        .s:bg_error       .s:fmt_none
+call s:hi('Ignore', '', '')
 
-exe "hi! Todo"            .s:fg_markup    .s:bg_none        .s:fmt_none
+call s:hi('Error', 'fg', 'error')
+
+call s:hi('Todo', 'markup', '')
 
 " Quickfix window highlighting
-exe "hi! qfLineNr"        .s:fg_keyword   .s:bg_none        .s:fmt_none
-"   qfFileName"
-"   qfLineNr"
-"   qfError"
+call s:hi('qfLineNr', 'keyword', '')
 
-exe "hi! Conceal"         .s:fg_guide     .s:bg_none        .s:fmt_none
-exe "hi! CursorLineConceal" .s:fg_guide   .s:bg_line        .s:fmt_none
+call s:hi('Conceal', 'comment', '')
+call s:hi('CursorLineConceal', 'guide_normal', 'line')
 
 
 " Terminal
 " ---------
 if has("nvim")
-  let g:terminal_color_0 =  s:palette.bg[s:style]
-  let g:terminal_color_1 =  s:palette.markup[s:style]
-  let g:terminal_color_2 =  s:palette.string[s:style]
-  let g:terminal_color_3 =  s:palette.accent[s:style]
-  let g:terminal_color_4 =  s:palette.tag[s:style]
-  let g:terminal_color_5 =  s:palette.constant[s:style]
-  let g:terminal_color_6 =  s:palette.regexp[s:style]
+  let g:terminal_color_0 =  ayu#get_color('bg')
+  let g:terminal_color_1 =  ayu#get_color('markup')
+  let g:terminal_color_2 =  ayu#get_color('string')
+  let g:terminal_color_3 =  ayu#get_color('accent')
+  let g:terminal_color_4 =  ayu#get_color('tag')
+  let g:terminal_color_5 =  ayu#get_color('constant')
+  let g:terminal_color_6 =  ayu#get_color('regexp')
   let g:terminal_color_7 =  "#FFFFFF"
-  let g:terminal_color_8 =  s:palette.fg_idle[s:style]
-  let g:terminal_color_9 =  s:palette.error[s:style]
-  let g:terminal_color_10 = s:palette.string[s:style]
-  let g:terminal_color_11 = s:palette.accent[s:style]
-  let g:terminal_color_12 = s:palette.tag[s:style]
-  let g:terminal_color_13 = s:palette.constant[s:style]
-  let g:terminal_color_14 = s:palette.regexp[s:style]
-  let g:terminal_color_15 = s:palette.comment[s:style]
+  let g:terminal_color_8 =  ayu#get_color('fg_idle')
+  let g:terminal_color_9 =  ayu#get_color('error')
+  let g:terminal_color_10 = ayu#get_color('string')
+  let g:terminal_color_11 = ayu#get_color('accent')
+  let g:terminal_color_12 = ayu#get_color('tag')
+  let g:terminal_color_13 = ayu#get_color('constant')
+  let g:terminal_color_14 = ayu#get_color('regexp')
+  let g:terminal_color_15 = ayu#get_color('comment')
   let g:terminal_color_background = g:terminal_color_0
-  let g:terminal_color_foreground = s:palette.fg[s:style]
+  let g:terminal_color_foreground = ayu#get_color('fg')
 else
-  let g:terminal_ansi_colors =  [s:palette.bg[s:style],      s:palette.markup[s:style]]
-  let g:terminal_ansi_colors += [s:palette.string[s:style],  s:palette.accent[s:style]]
-  let g:terminal_ansi_colors += [s:palette.tag[s:style],     s:palette.constant[s:style]]
-  let g:terminal_ansi_colors += [s:palette.regexp[s:style],  "#FFFFFF"]
-  let g:terminal_ansi_colors += [s:palette.fg_idle[s:style], s:palette.error[s:style]]
-  let g:terminal_ansi_colors += [s:palette.string[s:style],  s:palette.accent[s:style]]
-  let g:terminal_ansi_colors += [s:palette.tag[s:style],     s:palette.constant[s:style]]
-  let g:terminal_ansi_colors += [s:palette.regexp[s:style],  s:palette.comment[s:style]]
+  let g:terminal_ansi_colors =  [ayu#get_color('bg'),        ayu#get_color('markup')]
+  let g:terminal_ansi_colors += [ayu#get_color('string'),  ayu#get_color('accent')]
+  let g:terminal_ansi_colors += [ayu#get_color('tag'),     ayu#get_color('constant')]
+  let g:terminal_ansi_colors += [ayu#get_color('regexp'),  "#FFFFFF"]
+  let g:terminal_ansi_colors += [ayu#get_color('fg_idle'), ayu#get_color('error')]
+  let g:terminal_ansi_colors += [ayu#get_color('string'),  ayu#get_color('accent')]
+  let g:terminal_ansi_colors += [ayu#get_color('tag'),     ayu#get_color('constant')]
+  let g:terminal_ansi_colors += [ayu#get_color('regexp'),  ayu#get_color('comment')]
 endif
 
 
 " NerdTree
 " ---------
-exe "hi! NERDTreeOpenable"          .s:fg_fg_idle     .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeClosable"          .s:fg_accent      .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarksHeader"   .s:fg_pink        .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarksLeader"   .s:fg_bg          .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeBookmarkName"      .s:fg_keyword     .s:bg_none        .s:fmt_none
-" exe "hi! NERDTreeCWD"               .s:fg_pink        .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeUp"                .s:fg_fg_idle    .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDir"               .s:fg_function   .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeFile"              .s:fg_none       .s:bg_none        .s:fmt_none
-exe "hi! NERDTreeDirSlash"          .s:fg_accent     .s:bg_none        .s:fmt_none
+call s:hi('NERDTreeOpenable', 'fg_idle', '')
+call s:hi('NERDTreeClosable', 'accent', '')
+call s:hi('NERDTreeUp', 'fg_idle', '')
+call s:hi('NERDTreeDir', 'func', '')
+call s:hi('NERDTreeFile', '', '')
+call s:hi('NERDTreeDirSlash', 'accent', '')
 
 
 " GitGutter
 " ---------
-exe "hi! GitGutterAdd"          .s:fg_string     .s:bg_none        .s:fmt_none
-exe "hi! GitGutterChange"       .s:fg_tag        .s:bg_none        .s:fmt_none
-exe "hi! GitGutterDelete"       .s:fg_markup     .s:bg_none        .s:fmt_none
-exe "hi! GitGutterChangeDelete" .s:fg_function   .s:bg_none        .s:fmt_none
+call s:hi('GitGutterAdd', 'vcs_added', '')
+call s:hi('GitGutterChange', 'vcs_modified', '')
+call s:hi('GitGutterDelete', 'vcs_removed', '')
+call s:hi('GitGutterChangeDelete', 'vcs_modified', '', 'underline')
 
 "}}}
+
+" TODO: Add signify w/ background color to match column bg
 
 " Diff Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
-exe "hi! DiffAdd"     .s:fg_vcs_added    .s:bg_none .s:fmt_none
-exe "hi! DiffAdded"   .s:fg_vcs_added    .s:bg_none .s:fmt_none
-exe "hi! DiffChange"  .s:fg_vcs_modified .s:bg_none .s:fmt_none
-exe "hi! DiffDelete"  .s:fg_vcs_removed  .s:bg_none .s:fmt_none
-exe "hi! DiffRemoved" .s:fg_vcs_removed  .s:bg_none .s:fmt_none
-exe "hi! DiffText"    .s:fg_fg           .s:bg_none .s:fmt_none
+
+call s:hi('DiffAdd', 'vcs_added', '')
+hi! link DiffAdded DiffAdd
+call s:hi('DiffChange', 'vcs_modified', '')
+call s:hi('DiffDelete', 'vcs_removed', '')
+hi! link DiffRemoved DiffDelete
+hi! DiffText NONE
+
 "}}}
 
 " Telescope:"{{{
-exe "hi! TelescopeMatching" .s:fg_keyword .s:bg_none .s:fmt_undr
+call s:hi('TelescopeMatching', 'keyword', '', 'underline')
 " }}}
 
-let &background = s:style
+" Neovim Builtin LSP:" {{{
+call s:hi('LspDiagnosticsDefaultError', 'error', '')
+call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
+call s:hi('LspDiagnosticsDefaultWarning', 'keyword', '')
+call s:hi('LspDiagnosticsUnderlineWarning', 'keyword', '', 'underline')
+" }}}
+
+let &background = ayu#get_style()
