@@ -3,7 +3,7 @@
 " Let's store all the colors in a dictionary.
 let s:c = {}
 
-let s:ayucolor = get(g:, 'ayucolor', 'dark')
+let s:ayucolor = ayu#get_style()
 
 if s:ayucolor == 'light'
   " Base colors.

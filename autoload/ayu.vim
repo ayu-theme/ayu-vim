@@ -49,19 +49,11 @@ let g:ayu#palette.fg_idle      = {'light': "#828C99",  'mirage': "#607080",  'da
 " }}}
 
 function! ayu#get_style()
-    return get(g:, 'ayucolor', 'dark')
+    return &background ==# 'dark' ? get(g:, 'ayucolor', 'dark') : &background
 endfunction
 
 function! ayu#get_color(color_name)
-    let l:style = get(g:, 'ayucolor', 'dark')
+    let l:style = ayu#get_style()
 
     return g:ayu#palette[a:color_name][l:style]
-endfunction
-
-function! ayu#get_background()
-    if ayu#get_style() ==? 'light'
-        return 'light'
-    else
-        return 'dark'
-    endif
 endfunction

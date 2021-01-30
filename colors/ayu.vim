@@ -199,5 +199,3 @@ call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
 call s:hi('LspDiagnosticsDefaultWarning', 'keyword', '')
 call s:hi('LspDiagnosticsUnderlineWarning', 'keyword', '', 'underline')
 " }}}
-
-let &background = ayu#get_style()
