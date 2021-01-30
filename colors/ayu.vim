@@ -8,37 +8,22 @@ endif
 let g:colors_name = "ayu"
 "}}}
 
-
 " Helper Functions:"{{{
 " ----------------------------------------------------------------------------
 
 function! s:hi(group_name, fg_color_name, bg_color_name, ...)
     let l:highlights = ['hi!', a:group_name]
 
-    if a:bg_color_name != ''
-        let l:bg = 'guibg=' . ayu#get_color(a:bg_color_name)
-        call add(l:highlights, l:bg)
-    else
-        call add(l:highlights, 'guibg=NONE')
-    endif
+    let l:fg_color = a:fg_color_name !=# '' ? ayu#get_color(a:fg_color_name) : 'NONE'
+    call add(l:highlights, 'guifg=' . l:fg_color)
 
-    if a:fg_color_name !=# ''
-        let l:fg = 'guifg=' . ayu#get_color(a:fg_color_name)
-        call add(l:highlights, l:fg)
-    else
-        call add(l:highlights, 'guifg=NONE')
-    endif
+    let l:bg_color = a:bg_color_name !=# '' ? ayu#get_color(a:bg_color_name) : 'NONE'
+    call add(l:highlights, 'guibg=' . l:bg_color)
 
     let l:fmt = get(a:, '1')
-    if l:fmt !=# '0'
-        call add(l:highlights, 'gui=' . l:fmt)
-    else
-        " Default to no formating to avoid using defaults
-        call add(l:highlights, 'gui=NONE')
-    endif
+    call add(l:highlights, 'gui=' . (l:fmt !=# '0' ? l:fmt : 'NONE'))
 
     let l:cmd = join(l:highlights, ' ')
-
     execute l:cmd
 endfunction
 
