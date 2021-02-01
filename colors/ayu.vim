@@ -193,5 +193,5 @@ call s:hi('typescriptIdentifier', 'tag', '', 'italic')
 call s:hi('typescriptAssign', 'operator', '')
 call s:hi('typescriptBinaryOp', 'operator', '')
 call s:hi('typescriptTernaryOp', 'operator', '')
-call s:hi('typescriptModule', 'func', '')
+call s:hi('typescriptModule', 'keyword', '')
 " }}}
