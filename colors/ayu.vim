@@ -195,3 +195,9 @@ call s:hi('typescriptBinaryOp', 'operator', '')
 call s:hi('typescriptTernaryOp', 'operator', '')
 call s:hi('typescriptModule', 'keyword', '')
 " }}}
+
+" TreeSitter:" {{{
+call s:hi('TSInclude', 'accent', '')
+call s:hi('TSParameter', 'fg', '')
+call s:hi('TSField', 'tag', '')
+" }}}
