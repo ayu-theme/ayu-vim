@@ -175,7 +175,7 @@ hi! DiffText NONE
 "}}}
 
 " Telescope:"{{{
-call s:hi('TelescopeMatching', 'keyword', '', 'underline')
+call s:hi('TelescopeMatching', 'accent', '')
 " }}}
 
 " Neovim Builtin LSP:" {{{
