@@ -80,7 +80,7 @@ call s:hi('Comment', 'comment', '')
 call s:hi('Constant', 'constant', '')
 call s:hi('String', 'string', '')
 
-call s:hi('Identifier', 'tag', '')
+call s:hi('Identifier', 'entity', '')
 call s:hi('Function', 'func', '')
 
 call s:hi('Statement', 'keyword', '')
@@ -88,7 +88,7 @@ call s:hi('Operator', 'operator', '')
 
 call s:hi('PreProc', 'special', '')
 
-call s:hi('Type', 'tag', '')
+call s:hi('Type', 'entity', '')
 call s:hi('Structure', 'special', '')
 
 call s:hi('Special', 'special', '')
