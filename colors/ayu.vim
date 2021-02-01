@@ -200,4 +200,5 @@ call s:hi('typescriptModule', 'keyword', '')
 call s:hi('TSInclude', 'accent', '')
 call s:hi('TSParameter', 'fg', '')
 call s:hi('TSField', 'tag', '')
+call s:hi('TSAttribute', 'markup', '')
 " }}}
