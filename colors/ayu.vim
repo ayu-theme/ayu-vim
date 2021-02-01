@@ -184,3 +184,12 @@ call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
 call s:hi('LspDiagnosticsDefaultWarning', 'keyword', '')
 call s:hi('LspDiagnosticsUnderlineWarning', 'keyword', '', 'underline')
 " }}}
+
+" YATS:" {{{
+call s:hi('typescriptDecorator', 'markup', '')
+call s:hi('typescriptImport', 'accent', '')
+call s:hi('typescriptIdentifier', 'tag', '', 'italic')
+call s:hi('typescriptAssign', 'operator', '')
+call s:hi('typescriptBinaryOp', 'operator', '')
+call s:hi('typescriptTernaryOp', 'operator', '')
+" }}}
