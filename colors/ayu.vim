@@ -188,8 +188,10 @@ call s:hi('LspDiagnosticsUnderlineWarning', 'keyword', '', 'underline')
 " YATS:" {{{
 call s:hi('typescriptDecorator', 'markup', '')
 call s:hi('typescriptImport', 'accent', '')
+call s:hi('typescriptExport', 'accent', '')
 call s:hi('typescriptIdentifier', 'tag', '', 'italic')
 call s:hi('typescriptAssign', 'operator', '')
 call s:hi('typescriptBinaryOp', 'operator', '')
 call s:hi('typescriptTernaryOp', 'operator', '')
+call s:hi('typescriptModule', 'func', '')
 " }}}
