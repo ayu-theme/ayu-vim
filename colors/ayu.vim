@@ -194,6 +194,8 @@ call s:hi('typescriptAssign', 'operator', '')
 call s:hi('typescriptBinaryOp', 'operator', '')
 call s:hi('typescriptTernaryOp', 'operator', '')
 call s:hi('typescriptModule', 'keyword', '')
+call s:hi('typescriptTypeBrackets', 'special', '')
+call s:hi('typescriptClassName', 'tag', '')
 " }}}
 
 " TreeSitter:" {{{
