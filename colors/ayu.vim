@@ -208,3 +208,9 @@ call s:hi('TSAttribute', 'markup', '')
 call s:hi('TSVariableBuiltin', 'tag', '', 'italic')
 call s:hi('TSConstBuiltin', 'constant', '')
 " }}}
+
+" Fugitive:" {{{
+call s:hi('fugitiveUntrackedHeading', 'accent', '')
+call s:hi('fugitiveUnstagedHeading', 'accent', '')
+call s:hi('fugitiveStagedHeading', 'accent', '')
+" }}}
