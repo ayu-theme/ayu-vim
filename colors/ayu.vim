@@ -213,4 +213,10 @@ call s:hi('TSConstBuiltin', 'constant', '')
 call s:hi('fugitiveUntrackedHeading', 'accent', '')
 call s:hi('fugitiveUnstagedHeading', 'accent', '')
 call s:hi('fugitiveStagedHeading', 'accent', '')
+call s:hi('fugitiveHeading', 'accent', '')
+" }}}
+
+" Git Commit:" {{{
+call s:hi('gitcommitBranch', 'func', '')
+call s:hi('gitcommitHeader', 'accent', '')
 " }}}
