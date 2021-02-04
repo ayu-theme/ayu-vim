@@ -1,5 +1,4 @@
 " Initialisation:"{{{
-" ----------------------------------------------------------------------------
 hi clear
 if exists("syntax_on")
   syntax reset
@@ -9,8 +8,6 @@ let g:colors_name = "ayu"
 "}}}
 
 " Helper Functions:"{{{
-" ----------------------------------------------------------------------------
-
 function! s:hi(group_name, fg_color_name, bg_color_name, ...)
     let l:highlights = ['hi!', a:group_name]
 
@@ -26,33 +23,27 @@ function! s:hi(group_name, fg_color_name, bg_color_name, ...)
     let l:cmd = join(l:highlights, ' ')
     execute l:cmd
 endfunction
-
 " }}}
 
 " Vim Highlighting: (see :help highlight-groups)"{{{
-" ----------------------------------------------------------------------------
-
 call s:hi('Normal', 'fg', 'bg')
 call s:hi('ColorColumn', '', 'line')
 call s:hi('CursorColumn', '', 'line')
-" NOTE: darker than before, but still looks good, gives a nice contrast
 call s:hi('CursorLine', '', 'line')
 call s:hi('CursorLineNr', 'accent', 'line')
 call s:hi('LineNr', 'guide_normal', '')
 
-call s:hi('Directory', 'fg_idle', '')
+call s:hi('Directory', 'comment', '')
 call s:hi('ErrorMsg', 'fg', 'error', 'standout')
 call s:hi('VertSplit', 'bg', '')
 call s:hi('Folded', 'fg_idle', 'panel_bg')
 call s:hi('FoldColumn', '', 'panel_bg')
 call s:hi('SignColumn', '', 'panel_bg')
-"   Incsearch"
 
 call s:hi('MatchParen', 'fg', 'bg', 'underline')
 call s:hi('ModeMsg', 'string', '')
 call s:hi('MoreMsg', 'string', '')
 call s:hi('NonText', 'guide_normal', '')
-" NOTE: darker than before, I like it, but might not be for everyone
 call s:hi('Pmenu', 'fg', 'panel_shadow')
 call s:hi('PmenuSel', 'fg', 'selection_inactive', 'reverse')
 call s:hi('Question', 'string', '')
@@ -70,12 +61,9 @@ call s:hi('Title', 'keyword', '')
 call s:hi('Visual', '', 'selection_inactive')
 " TODO: add highlight called 'warning'
 call s:hi('WarningMsg', 'keyword', '')
-
 "}}}
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
-" ----------------------------------------------------------------------------
-
 call s:hi('Comment', 'comment', '')
 call s:hi('Constant', 'constant', '')
 call s:hi('String', 'string', '')
@@ -139,40 +127,39 @@ else
   let g:terminal_ansi_colors += [ayu#get_color('tag'),     ayu#get_color('constant')]
   let g:terminal_ansi_colors += [ayu#get_color('regexp'),  ayu#get_color('comment')]
 endif
-
-
-" NerdTree
-" ---------
-call s:hi('NERDTreeOpenable', 'fg_idle', '')
-call s:hi('NERDTreeClosable', 'accent', '')
-call s:hi('NERDTreeUp', 'fg_idle', '')
-call s:hi('NERDTreeDir', 'func', '')
-call s:hi('NERDTreeFile', '', '')
-call s:hi('NERDTreeDirSlash', 'accent', '')
-
-
-" GitGutter
-" ---------
-call s:hi('GitGutterAdd', 'vcs_added', '')
-call s:hi('GitGutterChange', 'vcs_modified', '')
-call s:hi('GitGutterDelete', 'vcs_removed', '')
-call s:hi('GitGutterChangeDelete', 'vcs_modified', '', 'underline')
-
 "}}}
 
-" TODO: Add signify w/ background color to match column bg
-
 " Diff Syntax Highlighting:"{{{
-" ----------------------------------------------------------------------------
-
 call s:hi('DiffAdd', 'vcs_added', '')
 hi! link DiffAdded DiffAdd
 call s:hi('DiffChange', 'vcs_modified', '')
 call s:hi('DiffDelete', 'vcs_removed', '')
 hi! link DiffRemoved DiffDelete
 hi! DiffText NONE
-
 "}}}
+
+" GitGutter:" {{{
+call s:hi('GitGutterAdd', 'vcs_added', '')
+call s:hi('GitGutterChange', 'vcs_modified', '')
+call s:hi('GitGutterDelete', 'vcs_removed', '')
+call s:hi('GitGutterChangeDelete', 'vcs_modified', '', 'underline')
+" }}}
+
+" Signify:" {{{
+call s:hi('SignifySignAdd', 'vcs_added', 'panel_bg')
+call s:hi('SignifySignChange', 'vcs_modified', 'panel_bg')
+call s:hi('SignifySignDelete', 'vcs_removed', 'panel_bg')
+call s:hi('SignifySignChangeDelete', 'vcs_modified', 'panel_bg', 'underline')
+" }}}
+
+" NERDTree:" {{{
+call s:hi('NERDTreeOpenable', 'fg_idle', '')
+call s:hi('NERDTreeClosable', 'accent', '')
+call s:hi('NERDTreeUp', 'fg_idle', '')
+call s:hi('NERDTreeDir', 'func', '')
+call s:hi('NERDTreeFile', '', '')
+call s:hi('NERDTreeDirSlash', 'special', '')
+" }}}
 
 " Telescope:"{{{
 call s:hi('TelescopeMatching', 'accent', '')
@@ -219,4 +206,8 @@ call s:hi('fugitiveHeading', 'accent', '')
 " Git Commit:" {{{
 call s:hi('gitcommitBranch', 'func', '')
 call s:hi('gitcommitHeader', 'accent', '')
+" }}}
+
+" Startify:" {{{
+call s:hi('StartifyFile', 'fg', '')
 " }}}
