@@ -24,8 +24,13 @@ let s:palette.tag       = {'dark': "#36A3D9",  'light': "#36A3D9",  'mirage': "#
 let s:palette.regexp    = {'dark': "#95E6CB",  'light': "#4CBF99",  'mirage': "#95E6CB"}
 let s:palette.string    = {'dark': "#B8CC52",  'light': "#86B300",  'mirage': "#BBE67E"}
 let s:palette.function  = {'dark': "#FFB454",  'light': "#F29718",  'mirage': "#FFD57F"}
+let s:palette.entity    = {'dark': "#59C2FF",  'light': "#399EE6",  'mirage': "#73D0FF"}
 let s:palette.special   = {'dark': "#E6B673",  'light': "#E6B673",  'mirage': "#FFC44C"}
 let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#FFAE57"}
+
+let s:palette.added     = {'dark': "#91B362",  'light': "#99BF4D",  'mirage': "#A6CC70"}
+let s:palette.modified  = {'dark': "#6994BF",  'light': "#709ECC",  'mirage': "#77A8D9"}
+let s:palette.removed   = {'dark': "#D96C75",  'light': "#F27983",  'mirage': "#F27983"}
 
 let s:palette.error     = {'dark': "#FF3333",  'light': "#FF3333",  'mirage': "#FF3333"}
 let s:palette.accent    = {'dark': "#F29718",  'light': "#FF6A00",  'mirage': "#FFCC66"}
@@ -245,6 +250,11 @@ exe "hi! GitGutterAdd"          .s:fg_string     .s:bg_none        .s:fmt_none
 exe "hi! GitGutterChange"       .s:fg_tag        .s:bg_none        .s:fmt_none
 exe "hi! GitGutterDelete"       .s:fg_markup     .s:bg_none        .s:fmt_none
 exe "hi! GitGutterChangeDelete" .s:fg_function   .s:bg_none        .s:fmt_none
+
+" Tree sitter
+" -----------
+exe "hi! TSPunctDelimiter"    .s:fg_accent    .s:bg_none    .s:fmt_none
+exe "hi! TSParameter"         .s:fg_entity    .s:bg_none    .s:fmt_none
 
 "}}}
 
