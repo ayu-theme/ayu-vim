@@ -185,6 +185,9 @@ call s:hi('typescriptTypeBrackets', 'special', '')
 call s:hi('typescriptClassName', 'tag', '')
 call s:hi('typescriptAmbientDeclaration', 'keyword', '')
 call s:hi('typescriptRegexpString', 'regexp', '')
+call s:hi('typescriptTry', 'markup', '')
+call s:hi('typescriptExceptions', 'markup', '')
+call s:hi('typescriptDebugger', 'markup', '', 'bold')
 " }}}
 
 " TreeSitter:" {{{
