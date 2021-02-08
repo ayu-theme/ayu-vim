@@ -1,4 +1,4 @@
-" Palette:" {{{
+" Official Palette:" {{{
 let g:ayu#palette = {}
 
 " common
@@ -38,15 +38,20 @@ let g:ayu#palette.guide_active       = {'light': "#D3D5D8",  'mirage': "#576070"
 let g:ayu#palette.guide_normal       = {'light': "#E6E7E9",  'mirage': "#383E4C",  'dark': "#242A35"}
 
 " vcs
-let g:ayu#palette.vcs_added    = {'light': "#99BF4D",  'mirage': "#A6CC70",  'dark': "#91B362"}
-let g:ayu#palette.vcs_modified = {'light': "#709ECC",  'mirage': "#77A8D9",  'dark': "#6994BF"}
-let g:ayu#palette.vcs_removed  = {'light': "#F27983",  'mirage': "#F27983",  'dark': "#D96C75"}
-
-" darker foreground
-let g:ayu#palette.fg_idle      = {'light': "#828C99",  'mirage': "#607080",  'dark': "#3E4B59"}
+let g:ayu#palette.vcs_added          = {'light': "#99BF4D",  'mirage': "#A6CC70",  'dark': "#91B362"}
+let g:ayu#palette.vcs_modified       = {'light': "#709ECC",  'mirage': "#77A8D9",  'dark': "#6994BF"}
+let g:ayu#palette.vcs_removed        = {'light': "#F27983",  'mirage': "#F27983",  'dark': "#D96C75"}
 
 " TODO: Add 16 color palette for convenience
 " }}}
+
+" Extended Color Palette:" {{{
+
+let g:ayu#palette.fg_idle = {'light': "#828C99",  'mirage': "#607080",  'dark': "#3E4B59"}
+let g:ayu#palette.warning = {'light': "#FA8D3E",  'mirage': "#FFA759",  'dark': "#FF8F40"}
+
+" }}}
+
 
 function! ayu#get_style()
     return &background ==# 'dark' ? get(g:, 'ayucolor', 'dark') : &background

@@ -59,8 +59,7 @@ call s:hi('WildMenu', 'fg', 'markup')
 call s:hi('TabLine', 'fg', 'panel_bg', 'reverse')
 call s:hi('Title', 'keyword', '')
 call s:hi('Visual', '', 'selection_inactive')
-" TODO: add highlight called 'warning'
-call s:hi('WarningMsg', 'keyword', '')
+call s:hi('WarningMsg', 'warning', '')
 "}}}
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
@@ -169,7 +168,7 @@ call s:hi('TelescopeMatching', 'accent', '')
 call s:hi('LspDiagnosticsDefaultError', 'error', '')
 call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
 call s:hi('LspDiagnosticsDefaultWarning', 'keyword', '')
-call s:hi('LspDiagnosticsUnderlineWarning', 'keyword', '', 'underline')
+call s:hi('LspDiagnosticsUnderlineWarning', 'warning', '', 'underline')
 " }}}
 
 " YATS:" {{{
