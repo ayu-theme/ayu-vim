@@ -173,11 +173,15 @@ call s:hi('TelescopeMatching', 'accent', '')
 " Neovim Builtin LSP:" {{{
 call s:hi('LspDiagnosticsDefaultError', 'error', '')
 call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
+call s:hi('LspDiagnosticsSignError', 'error', '')
+
 call s:hi('LspDiagnosticsDefaultWarning', 'warning', '')
 call s:hi('LspDiagnosticsUnderlineWarning', 'warning', '', 'underline')
-call s:hi('LspDiagnosticsSignError', 'error', '')
 call s:hi('LspDiagnosticsSignWarning', 'warning', '')
+
 call s:hi('LspDiagnosticsSignHint', 'fg', '')
+call s:hi('LspDiagnosticsVirtualTextHint', 'fg_idle', '')
+
 call s:hi('LspDiagnosticsSignInformation', 'fg', '')
 " }}}
 
@@ -207,6 +211,7 @@ call s:hi('TSField', 'tag', '')
 call s:hi('TSAttribute', 'markup', '')
 call s:hi('TSVariableBuiltin', 'tag', '', 'italic')
 call s:hi('TSConstBuiltin', 'constant', '')
+call s:hi('TSStringRegex', 'regexp', '')
 " }}}
 
 " Fugitive:" {{{
@@ -230,4 +235,6 @@ call s:hi('StartifyFile', 'fg', '')
 " Vim:" {{{
 call s:hi('vimUserFunc', 'func', '')
 hi! link vimVar NONE
+call s:hi('vimFunction', 'func', '')
+call s:hi('vimIsCommand', 'entity', '')
 " }}}
