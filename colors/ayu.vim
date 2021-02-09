@@ -169,8 +169,12 @@ call s:hi('TelescopeMatching', 'accent', '')
 " Neovim Builtin LSP:" {{{
 call s:hi('LspDiagnosticsDefaultError', 'error', '')
 call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
-call s:hi('LspDiagnosticsDefaultWarning', 'keyword', '')
+call s:hi('LspDiagnosticsDefaultWarning', 'warning', '')
 call s:hi('LspDiagnosticsUnderlineWarning', 'warning', '', 'underline')
+call s:hi('LspDiagnosticsSignError', 'error', 'panel_bg')
+call s:hi('LspDiagnosticsSignWarning', 'warning', 'panel_bg')
+call s:hi('LspDiagnosticsSignHint', 'fg', 'panel_bg')
+call s:hi('LspDiagnosticsSignInformation', 'fg', 'panel_bg')
 " }}}
 
 " YATS:" {{{
