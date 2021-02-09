@@ -131,12 +131,12 @@ endif
 "}}}
 
 " Diff Syntax Highlighting:"{{{
-call s:hi('DiffAdd', 'vcs_added', '')
-hi! link DiffAdded DiffAdd
-call s:hi('DiffChange', 'vcs_modified', '')
-call s:hi('DiffDelete', 'vcs_removed', '')
-hi! link DiffRemoved DiffDelete
-hi! DiffText NONE
+call s:hi('DiffAdd', 'vcs_added', 'guide_normal')
+call s:hi('DiffAdded', 'vcs_added', '')
+call s:hi('DiffChange', 'vcs_modified', 'guide_normal')
+call s:hi('DiffDelete', 'vcs_removed', 'guide_normal')
+call s:hi('DiffRemoved', 'vcs_removed', '')
+call s:hi('DiffText', 'vcs_modified', 'guide_active')
 "}}}
 
 " Netrw:" {{{
