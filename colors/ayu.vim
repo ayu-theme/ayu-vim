@@ -219,6 +219,7 @@ call s:hi('fugitiveHeading', 'accent', '')
 " Git Commit:" {{{
 call s:hi('gitcommitBranch', 'func', '')
 call s:hi('gitcommitHeader', 'accent', '')
+call s:hi('gitcommit
 " }}}
 
 " Startify:" {{{
