@@ -38,7 +38,7 @@ call s:hi('ErrorMsg', 'fg', 'error', 'standout')
 call s:hi('VertSplit', 'bg', '')
 call s:hi('Folded', 'fg_idle', 'panel_bg')
 call s:hi('FoldColumn', '', 'panel_bg')
-call s:hi('SignColumn', '', 'panel_bg')
+call s:hi('SignColumn', '', '')
 
 call s:hi('MatchParen', 'fg', 'bg', 'underline')
 call s:hi('ModeMsg', 'string', '')
@@ -151,10 +151,10 @@ call s:hi('GitGutterChangeDelete', 'vcs_modified', '', 'underline')
 " }}}
 
 " Signify:" {{{
-call s:hi('SignifySignAdd', 'vcs_added', 'panel_bg')
-call s:hi('SignifySignChange', 'vcs_modified', 'panel_bg')
-call s:hi('SignifySignDelete', 'vcs_removed', 'panel_bg')
-call s:hi('SignifySignChangeDelete', 'vcs_modified', 'panel_bg', 'underline')
+call s:hi('SignifySignAdd', 'vcs_added', '')
+call s:hi('SignifySignChange', 'vcs_modified', '')
+call s:hi('SignifySignDelete', 'vcs_removed', '')
+call s:hi('SignifySignChangeDelete', 'vcs_modified', '', 'underline')
 " }}}
 
 " NERDTree:" {{{
@@ -175,10 +175,10 @@ call s:hi('LspDiagnosticsDefaultError', 'error', '')
 call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
 call s:hi('LspDiagnosticsDefaultWarning', 'warning', '')
 call s:hi('LspDiagnosticsUnderlineWarning', 'warning', '', 'underline')
-call s:hi('LspDiagnosticsSignError', 'error', 'panel_bg')
-call s:hi('LspDiagnosticsSignWarning', 'warning', 'panel_bg')
-call s:hi('LspDiagnosticsSignHint', 'fg', 'panel_bg')
-call s:hi('LspDiagnosticsSignInformation', 'fg', 'panel_bg')
+call s:hi('LspDiagnosticsSignError', 'error', '')
+call s:hi('LspDiagnosticsSignWarning', 'warning', '')
+call s:hi('LspDiagnosticsSignHint', 'fg', '')
+call s:hi('LspDiagnosticsSignInformation', 'fg', '')
 " }}}
 
 " YATS:" {{{
