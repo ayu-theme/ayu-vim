@@ -33,7 +33,7 @@ call s:hi('CursorLine', '', 'line')
 call s:hi('CursorLineNr', 'accent', 'line')
 call s:hi('LineNr', 'guide_normal', '')
 
-call s:hi('Directory', 'comment', '')
+call s:hi('Directory', 'func', '')
 call s:hi('ErrorMsg', 'fg', 'error', 'standout')
 call s:hi('VertSplit', 'bg', '')
 call s:hi('Folded', 'fg_idle', 'panel_bg')
@@ -138,6 +138,10 @@ call s:hi('DiffDelete', 'vcs_removed', '')
 hi! link DiffRemoved DiffDelete
 hi! DiffText NONE
 "}}}
+
+" Netrw:" {{{
+call s:hi('netrwClassify', 'special', '')
+" }}}
 
 " GitGutter:" {{{
 call s:hi('GitGutterAdd', 'vcs_added', '')
