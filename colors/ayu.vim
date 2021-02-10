@@ -5,6 +5,7 @@ if exists("syntax_on")
 endif
 
 let g:colors_name = "ayu"
+let s:ayu_sign_contrast = get(g:, 'ayu_sign_contrast', 0)
 "}}}
 
 " Helper Functions:"{{{
@@ -23,6 +24,10 @@ function! s:hi(group_name, fg_color_name, bg_color_name, ...)
     let l:cmd = join(l:highlights, ' ')
     execute l:cmd
 endfunction
+
+function! s:sign_bg()
+    return s:ayu_sign_contrast ? 'panel_bg' : ''
+endfunction
 " }}}
 
 " Vim Highlighting: (see :help highlight-groups)"{{{
@@ -35,10 +40,10 @@ call s:hi('LineNr', 'guide_normal', '')
 
 call s:hi('Directory', 'func', '')
 call s:hi('ErrorMsg', 'fg', 'error', 'standout')
-call s:hi('VertSplit', 'bg', '')
+call s:hi('VertSplit', 'panel_bg', 'panel_bg')
 call s:hi('Folded', 'fg_idle', 'panel_bg')
-call s:hi('FoldColumn', '', 'panel_bg')
-call s:hi('SignColumn', '', 'panel_bg')
+call s:hi('FoldColumn', '', s:sign_bg())
+call s:hi('SignColumn', '', s:sign_bg())
 
 call s:hi('MatchParen', 'fg', 'bg', 'underline')
 call s:hi('ModeMsg', 'string', '')
@@ -144,17 +149,17 @@ call s:hi('netrwClassify', 'special', '')
 " }}}
 
 " GitGutter:" {{{
-call s:hi('GitGutterAdd', 'vcs_added', '')
-call s:hi('GitGutterChange', 'vcs_modified', '')
-call s:hi('GitGutterDelete', 'vcs_removed', '')
-call s:hi('GitGutterChangeDelete', 'vcs_modified', '', 'underline')
+call s:hi('GitGutterAdd', 'vcs_added', s:sign_bg())
+call s:hi('GitGutterChange', 'vcs_modified', s:sign_bg())
+call s:hi('GitGutterDelete', 'vcs_removed', s:sign_bg())
+call s:hi('GitGutterChangeDelete', 'vcs_modified', s:sign_bg(), 'underline')
 " }}}
 
 " Signify:" {{{
-call s:hi('SignifySignAdd', 'vcs_added', 'panel_bg')
-call s:hi('SignifySignChange', 'vcs_modified', 'panel_bg')
-call s:hi('SignifySignDelete', 'vcs_removed', 'panel_bg')
-call s:hi('SignifySignChangeDelete', 'vcs_modified', 'panel_bg', 'underline')
+call s:hi('SignifySignAdd', 'vcs_added', s:sign_bg())
+call s:hi('SignifySignChange', 'vcs_modified', s:sign_bg())
+call s:hi('SignifySignDelete', 'vcs_removed', s:sign_bg())
+call s:hi('SignifySignChangeDelete', 'vcs_modified', s:sign_bg(), 'underline')
 " }}}
 
 " NERDTree:" {{{
@@ -173,16 +178,17 @@ call s:hi('TelescopeMatching', 'accent', '')
 " Neovim Builtin LSP:" {{{
 call s:hi('LspDiagnosticsDefaultError', 'error', '')
 call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
-call s:hi('LspDiagnosticsSignError', 'error', 'panel_bg')
+call s:hi('LspDiagnosticsSignError', 'error', s:sign_bg())
 
 call s:hi('LspDiagnosticsDefaultWarning', 'warning', '')
 call s:hi('LspDiagnosticsUnderlineWarning', 'warning', '', 'underline')
-call s:hi('LspDiagnosticsSignWarning', 'warning', 'panel_bg')
+call s:hi('LspDiagnosticsSignWarning', 'warning', s:sign_bg())
 
-call s:hi('LspDiagnosticsSignHint', 'fg', 'panel_bg')
 call s:hi('LspDiagnosticsVirtualTextHint', 'fg_idle', '')
+call s:hi('LspDiagnosticsSignHint', 'fg', s:sign_bg())
 
-call s:hi('LspDiagnosticsSignInformation', 'fg', 'panel_bg')
+call s:hi('LspDiagnosticsVirtualTextInformation', 'fg_idle', '')
+call s:hi('LspDiagnosticsSignInformation', 'fg', s:sign_bg())
 " }}}
 
 " YATS:" {{{
