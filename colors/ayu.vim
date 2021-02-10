@@ -242,5 +242,5 @@ call s:hi('StartifyFile', 'fg', '')
 call s:hi('vimUserFunc', 'func', '')
 hi! link vimVar NONE
 call s:hi('vimFunction', 'func', '')
-call s:hi('vimIsCommand', 'entity', '')
+call s:hi('vimIsCommand', '', '')
 " }}}
