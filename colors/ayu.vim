@@ -1,4 +1,5 @@
 " Initialisation:"{{{
+
 hi clear
 if exists("syntax_on")
   syntax reset
@@ -6,9 +7,12 @@ endif
 
 let g:colors_name = "ayu"
 let s:ayu_sign_contrast = get(g:, 'ayu_sign_contrast', 0)
+let s:ayu_italic_comment = get(g:, 'ayu_italic_comment', 0)
+
 "}}}
 
 " Helper Functions:"{{{
+
 function! s:hi(group_name, fg_color_name, bg_color_name, ...)
     let l:highlights = ['hi!', a:group_name]
 
@@ -19,7 +23,7 @@ function! s:hi(group_name, fg_color_name, bg_color_name, ...)
     call add(l:highlights, 'guibg=' . l:bg_color)
 
     let l:fmt = get(a:, '1')
-    call add(l:highlights, 'gui=' . (l:fmt !=# '0' ? l:fmt : 'NONE'))
+    call add(l:highlights, 'gui=' . (l:fmt !=# '0' && l:fmt !=# '' ? l:fmt : 'NONE'))
 
     let l:cmd = join(l:highlights, ' ')
     execute l:cmd
@@ -28,6 +32,7 @@ endfunction
 function! s:sign_bg()
     return s:ayu_sign_contrast ? 'panel_bg' : ''
 endfunction
+
 " }}}
 
 " Vim Highlighting: (see :help highlight-groups)"{{{
@@ -70,8 +75,8 @@ call s:hi('WarningMsg', 'warning', '')
 "}}}
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
-call s:hi('Comment', 'comment', '')
-call s:hi('Constant', 'constant', '')
+call s:hi('Comment', 'comment', '', s:ayu_italic_comment ? 'italic' : '')
+call s:hi('Constant', 'constant', '', '')
 call s:hi('String', 'string', '')
 
 call s:hi('Identifier', 'entity', '')

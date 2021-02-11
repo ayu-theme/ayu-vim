@@ -18,9 +18,14 @@ let g:ayucolor="mirage" " for mirage version of theme
 let g:ayucolor="dark"   " for dark version of theme
 " NOTE: g:ayucolor will default to 'dark' when not set. 
 
-let g:ayu_sign_contrast = 1 " defaults to 0. If set to 1, SignColumn and FoldColumn will have a higher contrast instead of using the Normal background
-
 colorscheme ayu
+```
+
+# Options
+
+```VimL
+let g:ayu_italic_comment = 1 " defaults to 0.
+let g:ayu_sign_contrast = 1 " defaults to 0. If set to 1, SignColumn and FoldColumn will have a higher contrast instead of using the Normal background
 ```
 
 # Term colors
