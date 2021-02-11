@@ -249,3 +249,13 @@ hi! link vimVar NONE
 call s:hi('vimFunction', 'func', '')
 call s:hi('vimIsCommand', '', '')
 " }}}
+
+" XML:" {{{
+
+call s:hi('xmlTag', 'special', '')
+call s:hi('xmlTagName', 'keyword', '')
+call s:hi('xmlEntity', 'tag', '')
+call s:hi('xmlEntityPunct', 'operator', '')
+call s:hi('xmlEqual', 'operator', '')
+
+" }}}
