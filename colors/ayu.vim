@@ -13,22 +13,6 @@ let s:ayu_italic_comment = get(g:, 'ayu_italic_comment', 0)
 
 " Helper Functions:"{{{
 
-function! s:hi(group_name, fg_color_name, bg_color_name, ...)
-    let l:highlights = ['hi!', a:group_name]
-
-    let l:fg_color = a:fg_color_name !=# '' ? ayu#get_color(a:fg_color_name) : 'NONE'
-    call add(l:highlights, 'guifg=' . l:fg_color)
-
-    let l:bg_color = a:bg_color_name !=# '' ? ayu#get_color(a:bg_color_name) : 'NONE'
-    call add(l:highlights, 'guibg=' . l:bg_color)
-
-    let l:fmt = get(a:, '1')
-    call add(l:highlights, 'gui=' . (l:fmt !=# '0' && l:fmt !=# '' ? l:fmt : 'NONE'))
-
-    let l:cmd = join(l:highlights, ' ')
-    execute l:cmd
-endfunction
-
 function! s:sign_bg()
     return s:ayu_sign_contrast ? 'panel_bg' : ''
 endfunction
@@ -36,75 +20,75 @@ endfunction
 " }}}
 
 " Vim Highlighting: (see :help highlight-groups)"{{{
-call s:hi('Normal', 'fg', 'bg')
-call s:hi('ColorColumn', '', 'line')
-call s:hi('CursorColumn', '', 'line')
-call s:hi('CursorLine', '', 'line')
-call s:hi('CursorLineNr', 'accent', 'line')
-call s:hi('LineNr', 'guide_normal', '')
+call ayu#hi('Normal', 'fg', 'bg')
+call ayu#hi('ColorColumn', '', 'line')
+call ayu#hi('CursorColumn', '', 'line')
+call ayu#hi('CursorLine', '', 'line')
+call ayu#hi('CursorLineNr', 'accent', 'line')
+call ayu#hi('LineNr', 'guide_normal', '')
 
-call s:hi('Directory', 'func', '')
-call s:hi('ErrorMsg', 'fg', 'error', 'standout')
-call s:hi('VertSplit', 'panel_bg', 'panel_bg')
-call s:hi('Folded', 'fg_idle', 'panel_bg')
-call s:hi('FoldColumn', '', s:sign_bg())
-call s:hi('SignColumn', '', s:sign_bg())
+call ayu#hi('Directory', 'func', '')
+call ayu#hi('ErrorMsg', 'fg', 'error', 'standout')
+call ayu#hi('VertSplit', 'panel_bg', 'panel_bg')
+call ayu#hi('Folded', 'fg_idle', 'panel_bg')
+call ayu#hi('FoldColumn', '', s:sign_bg())
+call ayu#hi('SignColumn', '', s:sign_bg())
 
-call s:hi('MatchParen', 'fg', 'bg', 'underline')
-call s:hi('ModeMsg', 'string', '')
-call s:hi('MoreMsg', 'string', '')
-call s:hi('NonText', 'guide_normal', '')
-call s:hi('Pmenu', 'fg', 'selection_inactive')
-call s:hi('PmenuSel', 'fg', 'selection_inactive', 'reverse')
-call s:hi('Question', 'string', '')
-call s:hi('Search', 'bg', 'constant')
-call s:hi('SpecialKey', 'selection_inactive', '')
-call s:hi('SpellCap', 'tag', '', 'underline')
-call s:hi('SpellLocal', 'keyword', '', 'underline')
-call s:hi('SpellBad', 'error', '', 'underline')
-call s:hi('SpellRare', 'regexp', '', 'underline')
-call s:hi('StatusLine', 'fg', 'panel_bg')
-call s:hi('StatusLineNC', 'fg_idle', 'panel_bg')
-call s:hi('WildMenu', 'fg', 'markup')
-call s:hi('TabLine', 'comment', 'panel_shadow')
-call s:hi('TabLineFill', 'fg', 'panel_border')
-call s:hi('TabLineSel', 'fg', 'bg')
-call s:hi('Title', 'keyword', '')
-call s:hi('Visual', '', 'selection_inactive')
-call s:hi('WarningMsg', 'warning', '')
+call ayu#hi('MatchParen', 'fg', 'bg', 'underline')
+call ayu#hi('ModeMsg', 'string', '')
+call ayu#hi('MoreMsg', 'string', '')
+call ayu#hi('NonText', 'guide_normal', '')
+call ayu#hi('Pmenu', 'fg', 'selection_inactive')
+call ayu#hi('PmenuSel', 'fg', 'selection_inactive', 'reverse')
+call ayu#hi('Question', 'string', '')
+call ayu#hi('Search', 'bg', 'constant')
+call ayu#hi('SpecialKey', 'selection_inactive', '')
+call ayu#hi('SpellCap', 'tag', '', 'underline')
+call ayu#hi('SpellLocal', 'keyword', '', 'underline')
+call ayu#hi('SpellBad', 'error', '', 'underline')
+call ayu#hi('SpellRare', 'regexp', '', 'underline')
+call ayu#hi('StatusLine', 'fg', 'panel_bg')
+call ayu#hi('StatusLineNC', 'fg_idle', 'panel_bg')
+call ayu#hi('WildMenu', 'fg', 'markup')
+call ayu#hi('TabLine', 'comment', 'panel_shadow')
+call ayu#hi('TabLineFill', 'fg', 'panel_border')
+call ayu#hi('TabLineSel', 'fg', 'bg')
+call ayu#hi('Title', 'keyword', '')
+call ayu#hi('Visual', '', 'selection_inactive')
+call ayu#hi('WarningMsg', 'warning', '')
 "}}}
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
-call s:hi('Comment', 'comment', '', s:ayu_italic_comment ? 'italic' : '')
-call s:hi('Constant', 'constant', '', '')
-call s:hi('String', 'string', '')
+call ayu#hi('Comment', 'comment', '', s:ayu_italic_comment ? 'italic' : '')
+call ayu#hi('Constant', 'constant', '', '')
+call ayu#hi('String', 'string', '')
 
-call s:hi('Identifier', 'entity', '')
-call s:hi('Function', 'func', '')
+call ayu#hi('Identifier', 'entity', '')
+call ayu#hi('Function', 'func', '')
 
-call s:hi('Statement', 'keyword', '')
-call s:hi('Operator', 'operator', '')
+call ayu#hi('Statement', 'keyword', '')
+call ayu#hi('Operator', 'operator', '')
 
-call s:hi('PreProc', 'special', '')
+call ayu#hi('PreProc', 'special', '')
 
-call s:hi('Type', 'entity', '')
-call s:hi('Structure', 'special', '')
+call ayu#hi('Type', 'entity', '')
+call ayu#hi('Structure', 'special', '')
 
-call s:hi('Special', 'special', '')
+call ayu#hi('Special', 'special', '')
 
-call s:hi('Underlined', 'tag', '', 'underline')
+call ayu#hi('Underlined', 'tag', '', 'underline')
 
-call s:hi('Ignore', '', '')
+call ayu#hi('Ignore', '', '')
 
-call s:hi('Error', 'fg', 'error')
+call ayu#hi('Error', 'fg', 'error')
 
-call s:hi('Todo', 'markup', '')
+call ayu#hi('Todo', 'markup', '')
 
 " Quickfix window highlighting
-call s:hi('qfLineNr', 'keyword', '')
+call ayu#hi('qfLineNr', 'keyword', '')
 
-call s:hi('Conceal', 'comment', '')
-call s:hi('CursorLineConceal', 'guide_normal', 'line')
+call ayu#hi('Conceal', 'comment', '')
+call ayu#hi('CursorLineConceal', 'guide_normal', 'line')
 
 
 " Terminal
@@ -141,121 +125,121 @@ endif
 "}}}
 
 " Diff Syntax Highlighting:"{{{
-call s:hi('DiffAdd', 'vcs_added', 'guide_normal')
-call s:hi('DiffAdded', 'vcs_added', '')
-call s:hi('DiffChange', 'vcs_modified', 'guide_normal')
-call s:hi('DiffDelete', 'vcs_removed', 'guide_normal')
-call s:hi('DiffRemoved', 'vcs_removed', '')
-call s:hi('DiffText', 'vcs_modified', 'guide_active')
+call ayu#hi('DiffAdd', 'vcs_added', 'guide_normal')
+call ayu#hi('DiffAdded', 'vcs_added', '')
+call ayu#hi('DiffChange', 'vcs_modified', 'guide_normal')
+call ayu#hi('DiffDelete', 'vcs_removed', 'guide_normal')
+call ayu#hi('DiffRemoved', 'vcs_removed', '')
+call ayu#hi('DiffText', 'vcs_modified', 'guide_active')
 "}}}
 
 " Netrw:" {{{
-call s:hi('netrwClassify', 'special', '')
+call ayu#hi('netrwClassify', 'special', '')
 " }}}
 
 " GitGutter:" {{{
-call s:hi('GitGutterAdd', 'vcs_added', s:sign_bg())
-call s:hi('GitGutterChange', 'vcs_modified', s:sign_bg())
-call s:hi('GitGutterDelete', 'vcs_removed', s:sign_bg())
-call s:hi('GitGutterChangeDelete', 'vcs_modified', s:sign_bg(), 'underline')
+call ayu#hi('GitGutterAdd', 'vcs_added', s:sign_bg())
+call ayu#hi('GitGutterChange', 'vcs_modified', s:sign_bg())
+call ayu#hi('GitGutterDelete', 'vcs_removed', s:sign_bg())
+call ayu#hi('GitGutterChangeDelete', 'vcs_modified', s:sign_bg(), 'underline')
 " }}}
 
 " Signify:" {{{
-call s:hi('SignifySignAdd', 'vcs_added', s:sign_bg())
-call s:hi('SignifySignChange', 'vcs_modified', s:sign_bg())
-call s:hi('SignifySignDelete', 'vcs_removed', s:sign_bg())
-call s:hi('SignifySignChangeDelete', 'vcs_modified', s:sign_bg(), 'underline')
+call ayu#hi('SignifySignAdd', 'vcs_added', s:sign_bg())
+call ayu#hi('SignifySignChange', 'vcs_modified', s:sign_bg())
+call ayu#hi('SignifySignDelete', 'vcs_removed', s:sign_bg())
+call ayu#hi('SignifySignChangeDelete', 'vcs_modified', s:sign_bg(), 'underline')
 " }}}
 
 " NERDTree:" {{{
-call s:hi('NERDTreeOpenable', 'fg_idle', '')
-call s:hi('NERDTreeClosable', 'accent', '')
-call s:hi('NERDTreeUp', 'fg_idle', '')
-call s:hi('NERDTreeDir', 'func', '')
-call s:hi('NERDTreeFile', '', '')
-call s:hi('NERDTreeDirSlash', 'special', '')
+call ayu#hi('NERDTreeOpenable', 'fg_idle', '')
+call ayu#hi('NERDTreeClosable', 'accent', '')
+call ayu#hi('NERDTreeUp', 'fg_idle', '')
+call ayu#hi('NERDTreeDir', 'func', '')
+call ayu#hi('NERDTreeFile', '', '')
+call ayu#hi('NERDTreeDirSlash', 'special', '')
 " }}}
 
 " Telescope:"{{{
-call s:hi('TelescopeMatching', 'accent', '')
+call ayu#hi('TelescopeMatching', 'accent', '')
 " }}}
 
 " Neovim Builtin LSP:" {{{
-call s:hi('LspDiagnosticsDefaultError', 'error', '')
-call s:hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
-call s:hi('LspDiagnosticsSignError', 'error', s:sign_bg())
+call ayu#hi('LspDiagnosticsDefaultError', 'error', '')
+call ayu#hi('LspDiagnosticsUnderlineError', 'error', '', 'underline')
+call ayu#hi('LspDiagnosticsSignError', 'error', s:sign_bg())
 
-call s:hi('LspDiagnosticsDefaultWarning', 'warning', '')
-call s:hi('LspDiagnosticsUnderlineWarning', 'warning', '', 'underline')
-call s:hi('LspDiagnosticsSignWarning', 'warning', s:sign_bg())
+call ayu#hi('LspDiagnosticsDefaultWarning', 'warning', '')
+call ayu#hi('LspDiagnosticsUnderlineWarning', 'warning', '', 'underline')
+call ayu#hi('LspDiagnosticsSignWarning', 'warning', s:sign_bg())
 
-call s:hi('LspDiagnosticsVirtualTextHint', 'fg_idle', '')
-call s:hi('LspDiagnosticsSignHint', 'fg', s:sign_bg())
+call ayu#hi('LspDiagnosticsVirtualTextHint', 'fg_idle', '')
+call ayu#hi('LspDiagnosticsSignHint', 'fg', s:sign_bg())
 
-call s:hi('LspDiagnosticsVirtualTextInformation', 'fg_idle', '')
-call s:hi('LspDiagnosticsSignInformation', 'fg', s:sign_bg())
+call ayu#hi('LspDiagnosticsVirtualTextInformation', 'fg_idle', '')
+call ayu#hi('LspDiagnosticsSignInformation', 'fg', s:sign_bg())
 " }}}
 
 " YATS:" {{{
-call s:hi('typescriptDecorator', 'markup', '')
-call s:hi('typescriptImport', 'accent', '')
-call s:hi('typescriptExport', 'accent', '')
-call s:hi('typescriptIdentifier', 'tag', '', 'italic')
-call s:hi('typescriptAssign', 'operator', '')
-call s:hi('typescriptBinaryOp', 'operator', '')
-call s:hi('typescriptTernaryOp', 'operator', '')
-call s:hi('typescriptModule', 'keyword', '')
-call s:hi('typescriptTypeBrackets', 'special', '')
-call s:hi('typescriptClassName', 'tag', '')
-call s:hi('typescriptAmbientDeclaration', 'keyword', '')
-call s:hi('typescriptRegexpString', 'regexp', '')
-call s:hi('typescriptTry', 'markup', '')
-call s:hi('typescriptExceptions', 'markup', '')
-call s:hi('typescriptDebugger', 'markup', '', 'bold')
-call s:hi('typescriptParens', 'fg', '')
+call ayu#hi('typescriptDecorator', 'markup', '')
+call ayu#hi('typescriptImport', 'accent', '')
+call ayu#hi('typescriptExport', 'accent', '')
+call ayu#hi('typescriptIdentifier', 'tag', '', 'italic')
+call ayu#hi('typescriptAssign', 'operator', '')
+call ayu#hi('typescriptBinaryOp', 'operator', '')
+call ayu#hi('typescriptTernaryOp', 'operator', '')
+call ayu#hi('typescriptModule', 'keyword', '')
+call ayu#hi('typescriptTypeBrackets', 'special', '')
+call ayu#hi('typescriptClassName', 'tag', '')
+call ayu#hi('typescriptAmbientDeclaration', 'keyword', '')
+call ayu#hi('typescriptRegexpString', 'regexp', '')
+call ayu#hi('typescriptTry', 'markup', '')
+call ayu#hi('typescriptExceptions', 'markup', '')
+call ayu#hi('typescriptDebugger', 'markup', '', 'bold')
+call ayu#hi('typescriptParens', 'fg', '')
 " }}}
 
 " TreeSitter:" {{{
-call s:hi('TSInclude', 'accent', '')
-call s:hi('TSParameter', 'fg', '')
-call s:hi('TSField', 'tag', '')
-call s:hi('TSAttribute', 'markup', '')
-call s:hi('TSVariableBuiltin', 'tag', '', 'italic')
-call s:hi('TSConstBuiltin', 'constant', '')
-call s:hi('TSStringRegex', 'regexp', '')
+call ayu#hi('TSInclude', 'accent', '')
+call ayu#hi('TSParameter', 'fg', '')
+call ayu#hi('TSField', 'tag', '')
+call ayu#hi('TSAttribute', 'markup', '')
+call ayu#hi('TSVariableBuiltin', 'tag', '', 'italic')
+call ayu#hi('TSConstBuiltin', 'constant', '')
+call ayu#hi('TSStringRegex', 'regexp', '')
 " }}}
 
 " Fugitive:" {{{
-call s:hi('fugitiveUntrackedHeading', 'accent', '')
-call s:hi('fugitiveUnstagedHeading', 'accent', '')
-call s:hi('fugitiveStagedHeading', 'accent', '')
-call s:hi('fugitiveHeading', 'accent', '')
+call ayu#hi('fugitiveUntrackedHeading', 'accent', '')
+call ayu#hi('fugitiveUnstagedHeading', 'accent', '')
+call ayu#hi('fugitiveStagedHeading', 'accent', '')
+call ayu#hi('fugitiveHeading', 'accent', '')
 " }}}
 
 " Git Commit:" {{{
-call s:hi('gitcommitBranch', 'func', '')
-call s:hi('gitcommitHeader', 'accent', '')
-call s:hi('gitcommitSummary', 'fg', '')
-call s:hi('gitcommitOverflow', 'markup', '')
+call ayu#hi('gitcommitBranch', 'func', '')
+call ayu#hi('gitcommitHeader', 'accent', '')
+call ayu#hi('gitcommitSummary', 'fg', '')
+call ayu#hi('gitcommitOverflow', 'markup', '')
 " }}}
 
 " Startify:" {{{
-call s:hi('StartifyFile', 'fg', '')
+call ayu#hi('StartifyFile', 'fg', '')
 " }}}
 
 " Vim:" {{{
-call s:hi('vimUserFunc', 'func', '')
+call ayu#hi('vimUserFunc', 'func', '')
 hi! link vimVar NONE
-call s:hi('vimFunction', 'func', '')
-call s:hi('vimIsCommand', '', '')
+call ayu#hi('vimFunction', 'func', '')
+call ayu#hi('vimIsCommand', '', '')
 " }}}
 
 " XML:" {{{
 
-call s:hi('xmlTag', 'special', '')
-call s:hi('xmlTagName', 'keyword', '')
-call s:hi('xmlEntity', 'tag', '')
-call s:hi('xmlEntityPunct', 'operator', '')
-call s:hi('xmlEqual', 'operator', '')
+call ayu#hi('xmlTag', 'special', '')
+call ayu#hi('xmlTagName', 'keyword', '')
+call ayu#hi('xmlEntity', 'tag', '')
+call ayu#hi('xmlEntityPunct', 'operator', '')
+call ayu#hi('xmlEqual', 'operator', '')
 
 " }}}

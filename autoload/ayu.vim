@@ -62,3 +62,19 @@ function! ayu#get_color(color_name)
 
     return g:ayu#palette[a:color_name][l:style]
 endfunction
+
+function! ayu#hi(group_name, fg_color_name, bg_color_name, ...)
+    let l:highlights = ['hi!', a:group_name]
+
+    let l:fg_color = a:fg_color_name !=# '' ? ayu#get_color(a:fg_color_name) : 'NONE'
+    call add(l:highlights, 'guifg=' . l:fg_color)
+
+    let l:bg_color = a:bg_color_name !=# '' ? ayu#get_color(a:bg_color_name) : 'NONE'
+    call add(l:highlights, 'guibg=' . l:bg_color)
+
+    let l:fmt = get(a:, '1')
+    call add(l:highlights, 'gui=' . (l:fmt !=# '0' && l:fmt !=# '' ? l:fmt : 'NONE'))
+
+    let l:cmd = join(l:highlights, ' ')
+    execute l:cmd
+endfunction
