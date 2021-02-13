@@ -31,3 +31,24 @@ let g:ayu_sign_contrast = 1 " defaults to 0. If set to 1, SignColumn and FoldCol
 # Term colors
 
 For now In `/term` you can find color schemes for iTerm. More to come.
+
+# Customize The Theme To Your Liking
+
+```VimL
+function! s:custom_ayu_colors()
+  " Put whatever highlights you want here.
+  " The ayu#hi function is defined as followed:
+  " ayu#hi(highlight_group, foreground, background, [gui options])
+  " See autoload/ayu.vim for color palette. 
+  " `foreground` and `background` are required while the gui options are optional
+  " `gui options` only represents the values you could put in the `gui` part of the highlight. See `:h highlight-gui`.
+  call ayu#hi('IncSearch', '', 'vcs_modified')
+endfunction
+
+augroup custom_colors
+  autocmd!
+  autocmd ColorScheme ayu call s:custom_ayu_colors()
+augroup END
+```
+
+Doing this will allow you to modify the theme to your liking while not modifying the colors for any other theme.
