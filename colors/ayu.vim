@@ -196,7 +196,35 @@ call ayu#hi('typescriptRegexpString', 'regexp', '')
 call ayu#hi('typescriptTry', 'markup', '')
 call ayu#hi('typescriptExceptions', 'markup', '')
 call ayu#hi('typescriptDebugger', 'markup', '', 'bold')
-call ayu#hi('typescriptParens', 'fg', '')
+call ayu#hi('typescriptParens', 'special', '')
+"call ayu#hi('typescriptVariable', 'keyword', '')
+call ayu#hi('typescriptObjectLabel', 'tag', '')
+call ayu#hi('typescriptOperator', 'keyword', '')
+call ayu#hi('typescriptArrowFunc', 'operator', '')
+call ayu#hi('typescriptBraces', 'special', '')
+call ayu#hi('typescriptGlobal', 'accent', '')
+
+
+" Prop
+call ayu#hi('typescriptDOMFormProp', 'entity', '')
+call ayu#hi('typescriptDOMEventProp', 'entity', '')
+call ayu#hi('typescriptBOMWindowProp', 'accent', '')
+
+" Method
+call ayu#hi('typescriptDateMethod', 'func', '')
+call ayu#hi('typescriptBlobMethod', 'func', '')
+call ayu#hi('typescriptArrayMethod', 'func', '')
+call ayu#hi('typescriptArrayStaticMethod', 'func', '')
+call ayu#hi('typescriptStringMethod', 'func', '')
+call ayu#hi('typescriptPaymentMethod', 'func', '')
+call ayu#hi('typescriptHeadersMethod', 'func', '')
+call ayu#hi('typescriptCacheMethod', 'func', '')
+call ayu#hi('typescriptDOMEventMethod', 'func', '')
+call ayu#hi('typescriptDOMEventTargetMethod', 'func', '')
+call ayu#hi('typescriptBOMWindowMethod', 'func', '')
+call ayu#hi('typescriptDOMStorageMethod', 'func', '')
+call ayu#hi('typescriptPromiseMethod', 'func', '')
+call ayu#hi('typescriptGlobalMethod', 'func', '')
 " }}}
 
 " TreeSitter:" {{{
