@@ -225,6 +225,8 @@ call ayu#hi('typescriptBOMWindowMethod', 'func', '')
 call ayu#hi('typescriptDOMStorageMethod', 'func', '')
 call ayu#hi('typescriptPromiseMethod', 'func', '')
 call ayu#hi('typescriptGlobalMethod', 'func', '')
+call ayu#hi('typescriptFunctionMethod', 'func', '')
+call ayu#hi('typescriptBOMLocationMethod', 'func', '')
 " }}}
 
 " TreeSitter:" {{{
