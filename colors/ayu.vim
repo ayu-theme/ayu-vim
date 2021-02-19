@@ -204,7 +204,6 @@ call ayu#hi('typescriptArrowFunc', 'operator', '')
 call ayu#hi('typescriptBraces', 'special', '')
 call ayu#hi('typescriptGlobal', 'accent', '')
 
-
 " Prop
 call ayu#hi('typescriptDOMFormProp', 'entity', '')
 call ayu#hi('typescriptDOMEventProp', 'entity', '')
@@ -227,9 +226,16 @@ call ayu#hi('typescriptPromiseMethod', 'func', '')
 call ayu#hi('typescriptGlobalMethod', 'func', '')
 call ayu#hi('typescriptFunctionMethod', 'func', '')
 call ayu#hi('typescriptBOMLocationMethod', 'func', '')
+
+" Experimental
+call ayu#hi('typescriptFuncKeyword', 'keyword_func', '')
+call ayu#hi('typescriptConditional', 'conditional', '')
+call ayu#hi('typescriptRepeat', 'repeat', '')
+
 " }}}
 
 " TreeSitter:" {{{
+
 call ayu#hi('TSInclude', 'accent', '')
 call ayu#hi('TSParameter', 'fg', '')
 call ayu#hi('TSField', 'tag', '')
@@ -237,6 +243,12 @@ call ayu#hi('TSAttribute', 'markup', '')
 call ayu#hi('TSVariableBuiltin', 'tag', '', 'italic')
 call ayu#hi('TSConstBuiltin', 'constant', '')
 call ayu#hi('TSStringRegex', 'regexp', '')
+
+" Experimental
+call ayu#hi('TSKeywordFunction', 'keyword_func', '')
+call ayu#hi('TSRepeat', 'repeat', '')
+call ayu#hi('TSConditional', 'conditional', '')
+
 " }}}
 
 " Fugitive:" {{{
