@@ -181,6 +181,7 @@ call ayu#hi('LspDiagnosticsSignInformation', 'fg', s:sign_bg())
 " }}}
 
 " YATS:" {{{
+
 call ayu#hi('typescriptDecorator', 'markup', '')
 call ayu#hi('typescriptImport', 'accent', '')
 call ayu#hi('typescriptExport', 'accent', '')
@@ -230,7 +231,9 @@ call ayu#hi('typescriptBOMLocationMethod', 'func', '')
 " Experimental
 call ayu#hi('typescriptFuncKeyword', 'keyword_func', '')
 call ayu#hi('typescriptConditional', 'conditional', '')
+call ayu#hi('typescriptCase', 'conditional', '')
 call ayu#hi('typescriptRepeat', 'repeat', '')
+call ayu#hi('typescriptBranch', 'repeat', '')
 
 " }}}
 
