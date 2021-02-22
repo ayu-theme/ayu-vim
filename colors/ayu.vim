@@ -288,3 +288,7 @@ call ayu#hi('xmlEntityPunct', 'operator', '')
 call ayu#hi('xmlEqual', 'operator', '')
 
 " }}}
+
+" INI:" {{{
+call ayu#hi('dosiniHeader', 'keyword', '')
+" }}}
