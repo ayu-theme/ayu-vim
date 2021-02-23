@@ -20,6 +20,7 @@ endfunction
 " }}}
 
 " Vim Highlighting: (see :help highlight-groups)"{{{
+
 call ayu#hi('Normal', 'fg', 'bg')
 call ayu#hi('ColorColumn', '', 'line')
 call ayu#hi('CursorColumn', '', 'line')
@@ -56,10 +57,13 @@ call ayu#hi('TabLineSel', 'fg', 'bg')
 call ayu#hi('Title', 'keyword', '')
 call ayu#hi('Visual', '', 'selection_inactive')
 call ayu#hi('WarningMsg', 'warning', '')
+
 "}}}
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
+
 call ayu#hi('Comment', 'comment', '', s:ayu_italic_comment ? 'italic' : '')
+
 call ayu#hi('Constant', 'constant', '', '')
 call ayu#hi('String', 'string', '')
 
@@ -67,7 +71,10 @@ call ayu#hi('Identifier', 'entity', '')
 call ayu#hi('Function', 'func', '')
 
 call ayu#hi('Statement', 'keyword', '')
+call ayu#hi('Conditional', 'conditional', '')
+call ayu#hi('Repeat', 'repeat', '')
 call ayu#hi('Operator', 'operator', '')
+call ayu#hi('Exception', 'markup', '')
 
 call ayu#hi('PreProc', 'special', '')
 
@@ -90,9 +97,10 @@ call ayu#hi('qfLineNr', 'keyword', '')
 call ayu#hi('Conceal', 'comment', '')
 call ayu#hi('CursorLineConceal', 'guide_normal', 'line')
 
+"}}}
 
-" Terminal
-" ---------
+" Terminal: {{{
+
 if has("nvim")
   let g:terminal_color_0 =  ayu#get_color('bg')
   let g:terminal_color_1 =  ayu#get_color('markup')
@@ -122,7 +130,8 @@ else
   let g:terminal_ansi_colors += [ayu#get_color('tag'),     ayu#get_color('constant')]
   let g:terminal_ansi_colors += [ayu#get_color('regexp'),  ayu#get_color('comment')]
 endif
-"}}}
+
+" }}}
 
 " Diff Syntax Highlighting:"{{{
 call ayu#hi('DiffAdd', 'vcs_added', 'guide_normal')
@@ -234,6 +243,21 @@ call ayu#hi('typescriptConditional', 'conditional', '')
 call ayu#hi('typescriptCase', 'conditional', '')
 call ayu#hi('typescriptRepeat', 'repeat', '')
 call ayu#hi('typescriptBranch', 'repeat', '')
+
+" }}}
+
+" Javascript:" {{{
+
+call ayu#hi('jsFunction', 'keyword_func', '')
+call ayu#hi('jsNull', 'constant', '')
+call ayu#hi('jsBrackets', 'special', '')
+call ayu#hi('jsDot', 'special', '')
+call ayu#hi('jsParens', 'special', '')
+call ayu#hi('jsFuncParens', 'special', '')
+call ayu#hi('jsFuncBraces', 'special', '')
+call ayu#hi('jsIfElseBraces', 'special', '')
+call ayu#hi('jsObjectProp', 'entity', '')
+call ayu#hi('jsRegexpString', 'regexp', '')
 
 " }}}
 
