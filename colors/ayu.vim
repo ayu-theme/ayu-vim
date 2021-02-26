@@ -264,12 +264,20 @@ call ayu#hi('jsRegexpString', 'regexp', '')
 " TreeSitter:" {{{
 
 call ayu#hi('TSInclude', 'accent', '')
-call ayu#hi('TSParameter', 'fg', '')
+
+call ayu#hi('TSParameter', 'special', '')
+
 call ayu#hi('TSField', 'tag', '')
+call ayu#hi('TSProperty', 'tag', '')
+
 call ayu#hi('TSAttribute', 'markup', '')
-call ayu#hi('TSVariableBuiltin', 'tag', '', 'italic')
+
+call ayu#hi('TSVariableBuiltin', 'constant', '', 'italic')
 call ayu#hi('TSConstBuiltin', 'constant', '')
+
 call ayu#hi('TSStringRegex', 'regexp', '')
+
+call ayu#hi('TSFuncMacro', 'func', '')
 
 " Experimental
 call ayu#hi('TSKeywordFunction', 'keyword_func', '')
@@ -315,4 +323,12 @@ call ayu#hi('xmlEqual', 'operator', '')
 
 " INI:" {{{
 call ayu#hi('dosiniHeader', 'keyword', '')
+" }}}
+
+" Pandoc:" {{{
+
+call ayu#hi('pandocPipeTableHeader', 'keyword', '')
+call ayu#hi('pandocPipeTableDelims', 'keyword', '')
+call ayu#hi('pandocDelimitedCodeBlock', 'accent', '')
+
 " }}}
