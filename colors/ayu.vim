@@ -287,3 +287,11 @@ call ayu#hi('xmlEqual', 'operator', '')
 " INI:" {{{
 call ayu#hi('dosiniHeader', 'keyword', '')
 " }}}
+
+" Pandoc:" {{{
+
+call ayu#hi('pandocPipeTableHeader', 'keyword', '')
+call ayu#hi('pandocPipeTableDelims', 'keyword', '')
+call ayu#hi('pandocDelimitedCodeBlock', 'accent', '')
+
+" }}}
