@@ -333,3 +333,11 @@ call ayu#hi('pandocPipeTableDelims', 'keyword', '')
 call ayu#hi('pandocDelimitedCodeBlock', 'accent', '')
 
 " }}}
+
+" Shell:" {{{
+
+call ayu#hi('shTestOpr', 'operator', '')
+call ayu#hi('shOption', 'special', '')
+call ayu#hi('shQuote', 'string', '')
+
+" }}}
