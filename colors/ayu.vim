@@ -77,6 +77,7 @@ call ayu#hi('Operator', 'operator', '')
 call ayu#hi('Exception', 'markup', '')
 
 call ayu#hi('PreProc', 'accent', '')
+call ayu#hi('PreCondit', 'conditional', '')
 
 call ayu#hi('Type', 'entity', '')
 call ayu#hi('Structure', 'special', '')
@@ -250,14 +251,20 @@ call ayu#hi('typescriptBranch', 'repeat', '')
 " Javascript:" {{{
 
 call ayu#hi('jsFunction', 'keyword_func', '')
+
 call ayu#hi('jsNull', 'constant', '')
+call ayu#hi('jsThis', 'constant', '', 'italic')
+
 call ayu#hi('jsBrackets', 'special', '')
 call ayu#hi('jsDot', 'special', '')
 call ayu#hi('jsParens', 'special', '')
 call ayu#hi('jsFuncParens', 'special', '')
 call ayu#hi('jsFuncBraces', 'special', '')
 call ayu#hi('jsIfElseBraces', 'special', '')
-call ayu#hi('jsObjectProp', 'entity', '')
+
+call ayu#hi('jsObjectKey', 'tag', '')
+call ayu#hi('jsObjectProp', 'tag', '')
+
 call ayu#hi('jsRegexpString', 'regexp', '')
 
 " }}}
@@ -339,5 +346,37 @@ call ayu#hi('pandocDelimitedCodeBlock', 'accent', '')
 call ayu#hi('shTestOpr', 'operator', '')
 call ayu#hi('shOption', 'special', '')
 call ayu#hi('shQuote', 'string', '')
+
+" }}}
+
+" Clojure:" {{{
+
+call ayu#hi('clojureDefine', 'keyword_func', '')
+
+" }}}
+
+" Haskell:" {{{
+
+call ayu#hi('haskellDeclKeyword', 'keyword', '')
+call ayu#hi('haskellLet', 'keyword', '')
+call ayu#hi('haskellWhere', 'keyword', '')
+call ayu#hi('haskellIdentifier', 'tag', '')
+
+" }}}
+
+" PHP:" {{{
+
+call ayu#hi('phpDefine', 'keyword', '')
+call ayu#hi('phpStructure', 'keyword', '')
+
+" }}}
+
+" Ruby:" {{{
+
+call ayu#hi('rubyModule', 'keyword', '')
+call ayu#hi('rubyRegexp', 'regexp', '')
+call ayu#hi('rubyRegexpDelimiter', 'regexp', '')
+call ayu#hi('rubyDefine', 'keyword_func', '')
+call ayu#hi('rubyStringDelimiter', 'string', '')
 
 " }}}
