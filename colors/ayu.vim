@@ -76,12 +76,13 @@ call ayu#hi('Repeat', 'repeat', '')
 call ayu#hi('Operator', 'operator', '')
 call ayu#hi('Exception', 'markup', '')
 
-call ayu#hi('PreProc', 'special', '')
+call ayu#hi('PreProc', 'accent', '')
 
 call ayu#hi('Type', 'entity', '')
 call ayu#hi('Structure', 'special', '')
 
-call ayu#hi('Special', 'special', '')
+call ayu#hi('Special', 'accent', '')
+call ayu#hi('Delimiter', 'special', '')
 
 call ayu#hi('Underlined', 'tag', '', 'underline')
 
