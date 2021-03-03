@@ -71,13 +71,10 @@ call ayu#hi('Identifier', 'entity', '')
 call ayu#hi('Function', 'func', '')
 
 call ayu#hi('Statement', 'keyword', '')
-call ayu#hi('Conditional', 'conditional', '')
-call ayu#hi('Repeat', 'repeat', '')
 call ayu#hi('Operator', 'operator', '')
 call ayu#hi('Exception', 'markup', '')
 
 call ayu#hi('PreProc', 'accent', '')
-call ayu#hi('PreCondit', 'conditional', '')
 
 call ayu#hi('Type', 'entity', '')
 call ayu#hi('Structure', 'special', '')
@@ -239,18 +236,9 @@ call ayu#hi('typescriptGlobalMethod', 'func', '')
 call ayu#hi('typescriptFunctionMethod', 'func', '')
 call ayu#hi('typescriptBOMLocationMethod', 'func', '')
 
-" Experimental
-call ayu#hi('typescriptFuncKeyword', 'keyword_func', '')
-call ayu#hi('typescriptConditional', 'conditional', '')
-call ayu#hi('typescriptCase', 'conditional', '')
-call ayu#hi('typescriptRepeat', 'repeat', '')
-call ayu#hi('typescriptBranch', 'repeat', '')
-
 " }}}
 
 " Javascript:" {{{
-
-call ayu#hi('jsFunction', 'keyword_func', '')
 
 call ayu#hi('jsNull', 'constant', '')
 call ayu#hi('jsThis', 'constant', '', 'italic')
@@ -286,11 +274,6 @@ call ayu#hi('TSConstBuiltin', 'constant', '')
 call ayu#hi('TSStringRegex', 'regexp', '')
 
 call ayu#hi('TSFuncMacro', 'func', '')
-
-" Experimental
-call ayu#hi('TSKeywordFunction', 'keyword_func', '')
-call ayu#hi('TSRepeat', 'repeat', '')
-call ayu#hi('TSConditional', 'conditional', '')
 
 " }}}
 
@@ -349,12 +332,6 @@ call ayu#hi('shQuote', 'string', '')
 
 " }}}
 
-" Clojure:" {{{
-
-call ayu#hi('clojureDefine', 'keyword_func', '')
-
-" }}}
-
 " Haskell:" {{{
 
 call ayu#hi('haskellDeclKeyword', 'keyword', '')
@@ -376,7 +353,6 @@ call ayu#hi('phpStructure', 'keyword', '')
 call ayu#hi('rubyModule', 'keyword', '')
 call ayu#hi('rubyRegexp', 'regexp', '')
 call ayu#hi('rubyRegexpDelimiter', 'regexp', '')
-call ayu#hi('rubyDefine', 'keyword_func', '')
 call ayu#hi('rubyStringDelimiter', 'string', '')
 
 " }}}
