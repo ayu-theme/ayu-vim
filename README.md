@@ -52,3 +52,8 @@ augroup END
 ```
 
 Doing this will allow you to modify the theme to your liking while not modifying the colors for any other theme.
+
+# Related Projects
+
+- [ayu-vim](https://github.com/ayu-theme/ayu-vim): The official ayu-vim theme. It is currently un-maintained.
+- [neovim-ayu](https://github.com/Shatur95/neovim-ayu): A reimplementation of the theme in lua for better Neovim and lua support.
