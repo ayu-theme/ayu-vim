@@ -21,6 +21,35 @@ let g:ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 ```
 
+# Supported Plugins
+
+Here is a list of plugins which have been customized to work better with this theme:
+
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter). Git sign column signs.
+- [vim-signify](https://github.com/mhinz/vim-signify). General VCS sign column signs.
+- [NERDTree](https://github.com/preservim/nerdtree). File explorer.
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim). Fuzzy finder (neovim only).
+- [YATS](https://github.com/HerringtonDarkholme/yats.vim). Yet Another TypeScript Syntax.
+- [fugitive.vim](https://github.com/tpope/vim-fugitive). Git helper.
+- [startify](https://github.com/mhinz/vim-startify). Start screen plugin.
+- [vim-pandoc-syntax](https://github.com/vim-pandoc/vim-pandoc-syntax). Pandoc specific markdown syntax.
+- [haskell-vim](https://github.com/neovimhaskell/haskell-vim). Haskell syntax highlighting.
+
+And here is a list of other supported syntax groups:
+
+- Vim8 and Neovim Terminals.
+- Diff syntax.
+- Netrw.
+- Neovim's Built-in LSP.
+- TreeSitter (Neovim only).
+- Javascript.
+- Vimscript.
+- XML.
+- INI.
+- Shell.
+- PHP.
+- Ruby
+
 # Options
 
 ```VimL
