@@ -256,6 +256,10 @@ call ayu#hi('jsObjectProp', 'tag', '')
 
 call ayu#hi('jsRegexpString', 'regexp', '')
 
+call ayu#hi('jsStorageClass', 'keyword', '')
+
+call ayu#hi('jsArrowFunction', 'operator', '')
+
 " }}}
 
 " TreeSitter:" {{{
