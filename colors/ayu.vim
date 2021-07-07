@@ -361,3 +361,9 @@ call ayu#hi('rubyRegexpDelimiter', 'regexp', '')
 call ayu#hi('rubyStringDelimiter', 'string', '')
 
 " }}}
+
+" Compe:" {{{
+
+hi! link CompeDocumentation NormalFloat
+
+" }}}

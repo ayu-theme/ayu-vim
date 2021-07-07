@@ -34,6 +34,7 @@ Here is a list of plugins which have been customized to work better with this th
 - [startify](https://github.com/mhinz/vim-startify). Start screen plugin.
 - [vim-pandoc-syntax](https://github.com/vim-pandoc/vim-pandoc-syntax). Pandoc specific markdown syntax.
 - [haskell-vim](https://github.com/neovimhaskell/haskell-vim). Haskell syntax highlighting.
+- [nvim-compe](https://github.com/hrsh7th/nvim-compe). Neovim completion plugin.
 
 And here is a list of other supported syntax groups:
 
