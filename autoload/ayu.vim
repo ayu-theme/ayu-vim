@@ -47,8 +47,9 @@ let g:ayu#palette.vcs_removed        = {'light': "#F27983",  'mirage': "#F27983"
 
 " Extended Color Palette:" {{{
 
-let g:ayu#palette.fg_idle = {'light': "#828C99",  'mirage': "#607080",  'dark': "#3E4B59"}
-let g:ayu#palette.warning = {'light': "#FA8D3E",  'mirage': "#FFA759",  'dark': "#FF8F40"}
+let g:ayu#palette.fg_idle  = {'light': "#828C99", 'mirage': "#607080", 'dark': "#3E4B59"}
+let g:ayu#palette.warning  = {'light': "#FA8D3E", 'mirage': "#FFA759", 'dark': "#FF8F40"}
+let g:ayu#palette.float_bg = {'light': "#d8d8d8", 'mirage': "#2D323F", 'dark': "#161e26"}
 
 " }}}
 

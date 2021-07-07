@@ -41,7 +41,6 @@ call ayu#hi('MoreMsg', 'string', '')
 call ayu#hi('NonText', 'guide_normal', '')
 call ayu#hi('Pmenu', 'fg', 'selection_inactive')
 call ayu#hi('PmenuSel', 'fg', 'selection_inactive', 'reverse')
-call ayu#hi('FloatBorder', 'fg', 'selection_inactive')
 call ayu#hi('Question', 'string', '')
 call ayu#hi('Search', 'bg', 'constant')
 call ayu#hi('SpecialKey', 'selection_inactive', '')
@@ -60,6 +59,13 @@ call ayu#hi('Visual', '', 'selection_inactive')
 call ayu#hi('WarningMsg', 'warning', '')
 
 "}}}
+
+" Neovim Highlights:" {{{
+
+call ayu#hi('NormalFloat', 'fg', 'float_bg')
+call ayu#hi('FloatBorder', 'fg', 'float_bg')
+
+" }}}
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
 
