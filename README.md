@@ -35,6 +35,7 @@ Here is a list of plugins which have been customized to work better with this th
 - [vim-pandoc-syntax](https://github.com/vim-pandoc/vim-pandoc-syntax). Pandoc specific markdown syntax.
 - [haskell-vim](https://github.com/neovimhaskell/haskell-vim). Haskell syntax highlighting.
 - [nvim-compe](https://github.com/hrsh7th/nvim-compe). Neovim completion plugin.
+- [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
 
 And here is a list of other supported syntax groups:
 
@@ -56,6 +57,19 @@ And here is a list of other supported syntax groups:
 ```VimL
 let g:ayu_italic_comment = 1 " defaults to 0.
 let g:ayu_sign_contrast = 1 " defaults to 0. If set to 1, SignColumn and FoldColumn will have a higher contrast instead of using the Normal background
+```
+
+# nvim-ts-rainbow Colors
+
+In your Tree-Sitter configuration add the following:
+
+```lua
+require('nvim-treesitter.configs').setup{
+  rainbow = {
+    enable = true,
+    colors = require('ayu').rainbow_colors
+  }
+}
 ```
 
 # Customize The Theme To Your Liking
