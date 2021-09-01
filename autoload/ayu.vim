@@ -8,6 +8,8 @@ let g:ayu#palette.fg                 = {'light': "#575F66",  'mirage': "#CBCCC6"
 let g:ayu#palette.ui                 = {'light': "#8A9199",  'mirage': "#707A8C",  'dark': "#4D5566"}
 
 " syntax
+
+let g:ayu#palette.inactive           = {'light': "#E7E8E9",  'mirage': "#E7E8E9",  'dark': "#E7E8E9"}
 let g:ayu#palette.tag                = {'light': "#55B4D4",  'mirage': "#5CCFE6",  'dark': "#39BAE6"}
 let g:ayu#palette.func               = {'light': "#F2AE49",  'mirage': "#FFD580",  'dark': "#FFB454"}
 let g:ayu#palette.entity             = {'light': "#399EE6",  'mirage': "#73D0FF",  'dark': "#59C2FF"}

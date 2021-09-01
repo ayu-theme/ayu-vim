@@ -7,7 +7,6 @@ endif
 
 let g:colors_name = "ayu"
 let s:ayu_sign_contrast = get(g:, 'ayu_sign_contrast', 0)
-let s:ayu_italic_comment = get(g:, 'ayu_italic_comment', 0)
 
 "}}}
 
@@ -69,7 +68,7 @@ call ayu#hi('FloatBorder', 'fg', 'float_bg')
 
 " Generic Syntax Highlighting: (see :help group-name)"{{{
 
-call ayu#hi('Comment', 'comment', '', s:ayu_italic_comment ? 'italic' : '')
+call ayu#hi('Comment', 'comment', '', '')
 
 call ayu#hi('Constant', 'constant', '', '')
 call ayu#hi('String', 'string', '')
@@ -81,12 +80,12 @@ call ayu#hi('Statement', 'keyword', '')
 call ayu#hi('Operator', 'operator', '')
 call ayu#hi('Exception', 'markup', '')
 
-call ayu#hi('PreProc', 'accent', '')
+call ayu#hi('PreProc', 'special', '')
 
 call ayu#hi('Type', 'entity', '')
 call ayu#hi('Structure', 'special', '')
 
-call ayu#hi('Special', 'accent', '')
+call ayu#hi('Special', 'special', '')
 call ayu#hi('Delimiter', 'special', '')
 
 call ayu#hi('Underlined', 'tag', '', 'underline')
@@ -200,7 +199,7 @@ call ayu#hi('LspDiagnosticsSignInformation', 'fg', s:sign_bg())
 call ayu#hi('typescriptDecorator', 'markup', '')
 call ayu#hi('typescriptImport', 'accent', '')
 call ayu#hi('typescriptExport', 'accent', '')
-call ayu#hi('typescriptIdentifier', 'tag', '', 'italic')
+call ayu#hi('typescriptIdentifier', 'tag', '', '')
 call ayu#hi('typescriptAssign', 'operator', '')
 call ayu#hi('typescriptBinaryOp', 'operator', '')
 call ayu#hi('typescriptTernaryOp', 'operator', '')
@@ -245,19 +244,41 @@ call ayu#hi('typescriptBOMLocationMethod', 'func', '')
 
 " }}}
 
-" Javascript:" {{{
+" Cucumber: " {{{
 
+call ayu#hi('cucumberWhen', 'func', '', '')
+call ayu#hi('cucumberThen', 'tag', '', '')
+call ayu#hi('cucumberTags', 'tag', '', '')
+call ayu#hi('cucumberDelimiter', 'special', '', '')
+call ayu#hi('cucumberFeature', 'special', '', '')
+call ayu#hi('cucumberGivenAnd', 'keyword', '', '')
+call ayu#hi('cucumberGiven', 'keyword', '')
+
+" }}}
+
+" Javascript:" {{{
+call ayu#hi('jsNumber', 'constant', '', '')
 call ayu#hi('jsNull', 'constant', '')
-call ayu#hi('jsThis', 'constant', '', 'italic')
+call ayu#hi('jsThis', 'tag', '', '')
+call ayu#hi('jsSuper', 'tag', '', '')
+call ayu#hi('jsxComponentName', 'tag', '', '')
+call ayu#hi('jsxAttrib', 'func', '', '')
+call ayu#hi('jsObjectKey', '', '', '')
+call ayu#hi('jsModuleName', '', '', '')
+
+call ayu#hi('Keyword', 'keyword', '')
+call ayu#hi('jsOperator', 'operator', '')
 
 call ayu#hi('jsBrackets', 'special', '')
 call ayu#hi('jsDot', 'special', '')
-call ayu#hi('jsParens', 'special', '')
+call ayu#hi('jsParens', '', '')
 call ayu#hi('jsFuncParens', 'special', '')
 call ayu#hi('jsFuncBraces', 'special', '')
 call ayu#hi('jsIfElseBraces', 'special', '')
+call ayu#hi('jsPreProc', 'special', '')
+call ayu#hi('jsImport', 'keyword', '')
 
-call ayu#hi('jsObjectKey', 'tag', '')
+call ayu#hi('jsObjectKey', '', '')
 call ayu#hi('jsObjectProp', 'tag', '')
 
 call ayu#hi('jsRegexpString', 'regexp', '')
@@ -279,7 +300,7 @@ call ayu#hi('TSProperty', 'tag', '')
 
 call ayu#hi('TSAttribute', 'markup', '')
 
-call ayu#hi('TSVariableBuiltin', 'constant', '', 'italic')
+call ayu#hi('TSVariableBuiltin', 'constant', '', '')
 call ayu#hi('TSConstBuiltin', 'constant', '')
 
 call ayu#hi('TSStringRegex', 'regexp', '')
@@ -367,6 +388,12 @@ call ayu#hi('rubyRegexpDelimiter', 'regexp', '')
 call ayu#hi('rubyStringDelimiter', 'string', '')
 
 " }}}
+
+" COC:" {{{
+  call ayu#hi('CocErrorVirtualText', 'vcs_removed', '')
+  call ayu#hi('CocErrorSign', 'vcs_removed', '')
+  call ayu#hi('CocUnusedHighlight', 'special', '')
+" }]}
 
 " Compe:" {{{
 
