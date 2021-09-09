@@ -21,7 +21,7 @@ let g:ayu#palette.special            = {'light': "#E6BA7E",  'mirage': "#FFE6B3"
 let g:ayu#palette.comment            = {'light': "#ABB0B6",  'mirage': "#5C6773",  'dark': "#626A73"}
 let g:ayu#palette.constant           = {'light': "#A37ACC",  'mirage': "#D4BFFF",  'dark': "#FFEE99"}
 let g:ayu#palette.operator           = {'light': "#ED9366",  'mirage': "#F29E74",  'dark': "#F29668"}
-let g:ayu#palette.error              = {'light': "#F51818",  'mirage': "#FF3333",  'dark': "#FF3333"}
+let g:ayu#palette.error              = {'light': "#F07171",  'mirage': "#F28779",  'dark': "#F07178"}
 
 " ui
 " some of these colors should have transparency. Since this is not possible,
