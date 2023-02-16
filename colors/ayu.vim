@@ -272,6 +272,8 @@ hi! link diffAdded String
 "
 " This is needed for some reason: {{{
 
-let &background = s:style
+if !has("nvim")
+  let &background = s:style
+endif
 
 " }}}
