@@ -81,6 +81,14 @@ exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE"
 "}}}
 
 
+
+" HTML Tag Highlihgting
+" ----------------------------------------------------------------------------
+exe "hi htmlTag"           .s:fg_function  .s:bg_none        .s:fmt_none
+exe "hi htmlTagName"       .s:fg_keyword   .s:bg_none        .s:fmt_none
+exe "hi htmlEndTag"        .s:fg_function  .s:bg_none        .s:fmt_none
+
+
 " Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! Normal"        .s:fg_fg          .s:bg_bg          .s:fmt_none
